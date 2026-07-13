@@ -1,0 +1,13 @@
+{
+  "mcpServers": {
+    "ASSISTments": { "type": "http", "url": "https://mcp.assistments.org/mcp" },
+    "Brisk Teaching": { "type": "http", "url": "https://mcp.briskteaching.com/mcp" },
+    "Canva": { "type": "http", "url": "https://mcp.canva.com/mcp" },
+    "Coteach": { "type": "http", "url": "https://coteach.ai/api/mcp" },
+    "Diffit": { "type": "http", "url": "https://api.diffit.me/mcp" },
+    "Eedi": { "type": "http", "url": "https://teacher-tools.eedi.ai/mcp" },
+    "MagicSchool": { "type": "http", "url": "https://app.magicschool.ai/api/mcp" },
+    "Snorkl": { "type": "http", "url": "https://api.snorkl.app/mcp" },
+    "TeachFX": { "type": "http", "url": "https://api.teachfx.com/mcp" }
+  }
+}

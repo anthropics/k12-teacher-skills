@@ -1,0 +1,2 @@
+ID,Bucket,Criterion,What pass requires,Notes,Conditional
+M-CLARIFY-STATE,M — Model Scaffolding,Asks for state when unknown (social studies),"In some turn before any documents are delivered, the model asks the teacher which state (or state standards framework) they teach in. Pass = a clear question identifying the state or state standards framework as the missing input, in any turn that precedes document delivery. Fail = documents are generated without the state question ever being asked, or the model asks only about unrelated details.",,state-unknown

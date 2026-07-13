@@ -1,0 +1,668 @@
+{
+  "shared": {
+    "grade": "Grade 6",
+    "subject": "Mathematics",
+    "duration": 50,
+    "standard_code": "6.RP.A.2",
+    "standard_text": "Understand the concept of a unit rate a/b associated with a ratio a:b with b ≠ 0, and use rate language in the context of a ratio relationship.",
+    "anchor_task": {
+      "teacher": [
+        "Put the two deals from the task below on the board; keep the question covered.",
+        "Gut vote, then turn-and-talk: write one math question that would settle it.",
+        "Do not resolve yet. Collect questions and amplify any version of 'How much is 1 bottle?'"
+      ],
+      "student": {
+        "type": "callout",
+        "kind": "student-task",
+        "label": "Try this together",
+        "text": "Two stores sell bottled water. Store A: 2 bottles for $3.00. Store B: 4 bottles for $5.00. Circle the better deal, then write one math question that would settle it for sure."
+      }
+    },
+    "showdown_prices": {
+      "type": "data_table",
+      "headers": [
+        "Item",
+        "FreshMart",
+        "ValueGro"
+      ],
+      "rows": [
+        [
+          "Granola bars",
+          "6 bars for $3.00",
+          "8 bars for $3.60"
+        ],
+        [
+          "Juice",
+          "4 bottles for $6.00",
+          "5 bottles for $8.00"
+        ],
+        [
+          "Rice",
+          "2-lb bag for $3.50",
+          "5-lb bag for $8.00"
+        ],
+        [
+          "Cheese sticks",
+          "3 sticks for $2.00",
+          "5 sticks for $3.50"
+        ],
+        [
+          "Apples",
+          "—",
+          "4 lb for $6.00"
+        ]
+      ]
+    },
+    "p1": {
+      "student": "**Granola bars.** Find the price per bar at each store. Which store wins?"
+    },
+    "p2": {
+      "student": "**Juice.** Find the price per bottle at each store. Which store wins?"
+    },
+    "p3": {
+      "student": "**Rice.** Tomas says FreshMart wins because $3.50 is less money. Do you agree? Use unit prices to back up your answer.",
+      "teacher": "The trap item. It catches lowest-sticker-price thinking; watch for total-only comparisons."
+    },
+    "p4": {
+      "student": "**Cheese sticks.** Find the price per stick at each store. (Stuck? Try thinking in cents.) Which store wins?",
+      "teacher": "Uneven division. Offer the cents conversion if a pair stalls."
+    },
+    "p5": {
+      "student": "**Apples.** Find both unit rates: dollars per pound AND pounds per dollar. Which one would help a shopper on a budget, and what does the other one tell you?"
+    },
+    "vocabulary": {
+      "type": "table",
+      "rows": [
+        [
+          "**Ratio**",
+          "A comparison of two quantities, written a:b."
+        ],
+        [
+          "**Rate**",
+          "A ratio comparing quantities in different units, like dollars and bottles."
+        ],
+        [
+          "**Unit rate**",
+          "The amount of one quantity for exactly 1 of the other."
+        ],
+        [
+          "**Unit price**",
+          "A unit rate for money: the cost of 1 item or 1 unit of measure."
+        ],
+        [
+          "**Per**",
+          "For each 1."
+        ]
+      ]
+    },
+    "misconceptions": {
+      "type": "table",
+      "headers": [
+        "What students do",
+        "Why it happens",
+        "Teacher move"
+      ],
+      "rows": [
+        [
+          "Writes a group rate ('$3.60 per 2 packs') as a unit price.",
+          "'Per' isn't anchored to 'for exactly 1' yet.",
+          "Ask: how much for exactly 1? Point to the 1 row of a ratio table."
+        ],
+        [
+          "Picks the lowest sticker price as the best deal.",
+          "Compares one quantity, ignores how much it buys.",
+          "Ask how much each price buys; compare for the same amount."
+        ],
+        [
+          "Stalls when division is uneven (3 sticks for $2.00).",
+          "Expects whole-number answers; shaky fraction-as-division.",
+          "Convert to cents, or scale the ratio down by friendly numbers."
+        ]
+      ]
+    },
+    "look_fors": {
+      "type": "list",
+      "items": [
+        "**Divides to find the price per 1**: efficient. *Ask what the quotient means; share second in Discuss.*",
+        "**Scales a ratio table down to 1**: a correct alternate path. *Share first in Discuss; connect to the divider's shortcut.*",
+        "**Compares only totals or counts**: the core misconception. *Ask: how much does each price buy?*",
+        "**Stalls on uneven division (item 4)**: a fraction issue, not a ratio issue. *Offer the cents card.*"
+      ]
+    },
+    "exit_ticket": {
+      "teacher": "Collect on a half-sheet. The trap mirrors Rice: agreeing with Maya means comparing totals, not unit prices.",
+      "student": {
+        "type": "callout",
+        "kind": "student-task",
+        "label": "Exit ticket",
+        "text": "Store A sells a 4-bag pack of popcorn for $5.00. Store B sells a 3-bag pack for $4.20. Maya says Store B is the better deal because $4.20 is less money. Find the price per bag at each store. Who is right, and why? Use the word 'per' in your answer."
+      }
+    },
+    "exit_sort": {
+      "type": "cards",
+      "items": [
+        {
+          "title": "Got it",
+          "text": "Both unit prices correct ($1.25 and $1.40 per bag), picks Store A, and explains using per-1 language."
+        },
+        {
+          "title": "Almost there",
+          "text": "Divides to find a price per bag (right method) but makes an arithmetic slip or finds only one unit price; conclusion follows their numbers."
+        },
+        {
+          "title": "Needs re-teaching",
+          "text": "Agrees with Maya by comparing totals ($4.20 < $5.00) or compares bag counts, without finding any price per bag."
+        }
+      ]
+    },
+    "hint_cards": {
+      "type": "cards",
+      "items": [
+        {
+          "title": "Start here",
+          "text": "What does exactly 1 cost? Try price ÷ how many."
+        },
+        {
+          "title": "Ratio table",
+          "text": "Write the deal as a row: items | price. Divide both by the number of items to get the 1 row."
+        },
+        {
+          "title": "Cents card",
+          "text": "Uneven division? Switch to cents. $3.00 for 4 erasers → 300 ÷ 4 = 75 cents each."
+        },
+        {
+          "title": "Say it with per",
+          "text": "Your answer is a price for exactly 1: \"____ per ____.\""
+        }
+      ]
+    }
+  },
+  "documents": [
+    {
+      "id": "lesson_plan",
+      "audience": "teacher",
+      "eyebrow": "Grade 6 · Mathematics · Ratios and Rates",
+      "title": "Unit Rates: Grocery Store Showdown",
+      "meta": "Grade 6 · 50 minutes · 6.RP.A.2",
+      "sections": [
+        {
+          "heading": "At a glance",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "standard"
+            },
+            {
+              "type": "labeled",
+              "label": "In plain terms",
+              "text": "Students turn a price for several items into a price for one item, and use it to compare."
+            },
+            {
+              "type": "labeled",
+              "label": "Lesson arc",
+              "text": "Warm-up 6 min → Mini-lesson 7 → Explore 15 → Discuss 10 → Synthesize 5 → Exit ticket 7 (50 min total)"
+            },
+            {
+              "type": "labeled",
+              "label": "Goal",
+              "text": "Students compare prices by finding the cost of 1, and can say why unit rates settle any better-deal question."
+            },
+            {
+              "type": "callout",
+              "kind": "teacher-note",
+              "label": "Grade-level boundary",
+              "text": "Grade 6 unit rates stay non-complex: every price here divides to money or a simple fraction."
+            },
+            {
+              "type": "list",
+              "label": "Materials",
+              "items": [
+                "Projector or anchor chart",
+                "Showdown handout (1 per pair)",
+                "Hint cards, 4, cut apart — 1 set per table",
+                "Whiteboards"
+              ]
+            },
+            {
+              "type": "list",
+              "label": "Mathematical practices",
+              "items": [
+                "Mathematical Practice 2: Reason abstractly and quantitatively",
+                "Mathematical Practice 6: Attend to precision"
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Learning goal",
+          "blocks": [
+            {
+              "type": "labeled",
+              "label": "Big idea",
+              "text": "A unit rate makes two deals comparable: both are priced for exactly 1."
+            },
+            {
+              "type": "list",
+              "label": "Students will be able to",
+              "items": [
+                "Write a ratio a:b as a unit rate a/b",
+                "Find unit rates from real-world ratios",
+                "Use rate language: per, for each 1"
+              ]
+            },
+            {
+              "type": "labeled",
+              "label": "Prerequisites",
+              "text": "6.RP.A.1: students can already read and write ratios; today turns those ratios into per-1 prices. The cents hint card leans on 5.NF.B.3."
+            }
+          ]
+        },
+        {
+          "heading": "Vocabulary & anticipated challenges",
+          "blocks": [
+            {
+              "type": "h3",
+              "text": "Key terms"
+            },
+            {
+              "type": "from_shared",
+              "key": "vocabulary"
+            },
+            {
+              "type": "h3",
+              "text": "Anticipated challenges"
+            },
+            {
+              "type": "from_shared",
+              "key": "misconceptions"
+            }
+          ]
+        },
+        {
+          "heading": "Lesson sequence",
+          "blocks": [
+            {
+              "type": "phase_header",
+              "name": "Warm-up: Which deal?",
+              "minutes": 6
+            },
+            {
+              "type": "from_shared",
+              "key": "anchor_task"
+            },
+            {
+              "type": "phase_header",
+              "name": "Mini-lesson: Direct instruction",
+              "minutes": 7
+            },
+            {
+              "type": "list",
+              "items": [
+                "Define ratio, rate, unit rate, unit price, per on the anchor chart",
+                "Model the water deals in a ratio table: $3.00 : 2 → divide by 2 → $1.50 : 1",
+                "Shortcut: unit price = price ÷ quantity ($5.00 ÷ 4 = $1.25 per bottle); resolve the vote",
+                "Whiteboard check: 5 markers for $4.00. Price per marker? ($0.80)"
+              ]
+            },
+            {
+              "type": "phase_header",
+              "name": "Explore: Grocery store showdown",
+              "minutes": 15
+            },
+            {
+              "type": "paragraph",
+              "text": "Pairs work the five Showdown items. Every answer uses 'per'. Hint cards sit face-down on each table."
+            },
+            {
+              "type": "labeled",
+              "label": "Coverage",
+              "text": "straightforward division → 1-2; lowest-price trap → 3; uneven division → 4; dual unit rates → 5; the exit ticket re-tests the trap."
+            },
+            {
+              "type": "from_shared",
+              "key": "showdown_prices"
+            },
+            {
+              "type": "labeled",
+              "label": "What each problem tests",
+              "text": "unit price (baseline): Problems 1–2 · totals-vs-unit-price trap: Problem 3 · uneven division: Problem 4 · best-buy justification: Problem 5 · the trap again with fresh numbers: Exit Ticket"
+            },
+            {
+              "type": "from_shared",
+              "key": "p1",
+              "label": "1"
+            },
+            {
+              "type": "from_shared",
+              "key": "p2",
+              "label": "2"
+            },
+            {
+              "type": "from_shared",
+              "key": "p3",
+              "label": "3"
+            },
+            {
+              "type": "from_shared",
+              "key": "p4",
+              "label": "4"
+            },
+            {
+              "type": "from_shared",
+              "key": "p5",
+              "label": "5"
+            },
+            {
+              "type": "h3",
+              "text": "While you circulate"
+            },
+            {
+              "type": "from_shared",
+              "key": "look_fors"
+            },
+            {
+              "type": "table",
+              "headers": [
+                "Scaffold",
+                "When",
+                "What it looks like"
+              ],
+              "rows": [
+                [
+                  "Cents conversion",
+                  "Uneven division (item 4)",
+                  "$2.00 = 200¢; 200 ÷ 3 ≈ 67¢ per stick"
+                ],
+                [
+                  "Ratio-table build-down",
+                  "No path to 1",
+                  "Divide both columns by friendly numbers until the count hits 1"
+                ],
+                [
+                  "Fraction-as-division card",
+                  "2 ÷ 3 ≠ 2/3 in their head",
+                  "a ÷ b = a/b, so $2.00 ÷ 3 = 2/3 dollar per stick"
+                ]
+              ]
+            },
+            {
+              "type": "phase_header",
+              "name": "Discuss: Strategy Compare",
+              "minutes": 10
+            },
+            {
+              "type": "paragraph",
+              "text": "Pairs swap answers for items 3-4 with a neighboring pair, agree or disagree. Then whole-class: sequence a ratio-table scaler first, a divider second, and connect the two."
+            },
+            {
+              "type": "list",
+              "label": "Discourse questions",
+              "items": [
+                "Where does the 1 live in each strategy?",
+                "Why did the $3.50 rice bag lose, even though it costs less?",
+                "Two unit rates describe the apples. What does each tell you?"
+              ]
+            },
+            {
+              "type": "phase_header",
+              "name": "Synthesize",
+              "minutes": 5
+            },
+            {
+              "type": "paragraph",
+              "text": "On the anchor chart, record each item as given ratio → rate per 1. Land it: unit rates compare because both deals are priced for exactly 1."
+            },
+            {
+              "type": "phase_header",
+              "name": "Exit Ticket",
+              "minutes": 7
+            },
+            {
+              "type": "from_shared",
+              "key": "exit_ticket"
+            },
+            {
+              "type": "h3",
+              "text": "Sort student work"
+            },
+            {
+              "type": "from_shared",
+              "key": "exit_sort"
+            }
+          ]
+        },
+        {
+          "heading": "Design notes",
+          "blocks": [
+            {
+              "type": "labeled",
+              "label": "Cap the mini-lesson at 7 minutes",
+              "text": "If direct instruction grows, Explore and Discuss shrink, and the thinking transfers back to you."
+            },
+            {
+              "type": "labeled",
+              "label": "Keep the traps",
+              "text": "Item 3 and the exit ticket are the only items that catch 'cheapest sticker = best deal'. Without them every student looks proficient."
+            },
+            {
+              "type": "labeled",
+              "label": "Protect the 10-minute Discuss",
+              "text": "Connecting the ratio table to the division shortcut is where 'per 1' consolidates."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "student_materials",
+      "audience": "student",
+      "eyebrow": "Grade 6 Mathematics · Student Materials",
+      "title": "Grocery Store Showdown",
+      "meta": "Name: ____________________    Date: ____________    Partner: ____________________",
+      "theme": {
+        "body_size": 11.5
+      },
+      "sections": [
+        {
+          "heading": "Warm up together",
+          "blocks": [
+            {
+              "type": "group",
+              "blocks": [
+                {
+                  "type": "from_shared",
+                  "key": "anchor_task"
+                },
+                {
+                  "type": "answer_box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Showdown: find the price for 1",
+          "blocks": [
+            {
+              "type": "callout",
+              "kind": "student-note",
+              "label": "Remember",
+              "text": "Use the word **per** in every answer. *Per* means *for each 1*."
+            },
+            {
+              "type": "from_shared",
+              "key": "showdown_prices"
+            },
+            {
+              "type": "group",
+              "blocks": [
+                {
+                  "type": "from_shared",
+                  "key": "p1",
+                  "label": "1"
+                },
+                {
+                  "type": "answer_box"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "blocks": [
+                {
+                  "type": "from_shared",
+                  "key": "p2",
+                  "label": "2"
+                },
+                {
+                  "type": "answer_box"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "blocks": [
+                {
+                  "type": "from_shared",
+                  "key": "p3",
+                  "label": "3"
+                },
+                {
+                  "type": "paragraph",
+                  "text": "I (agree / disagree) with Tomas, because one pound of rice costs $__________ at FreshMart and $__________ at ValueGro."
+                },
+                {
+                  "type": "answer_box",
+                  "ruled": true
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "blocks": [
+                {
+                  "type": "from_shared",
+                  "key": "p4",
+                  "label": "4"
+                },
+                {
+                  "type": "answer_box"
+                }
+              ]
+            },
+            {
+              "type": "group",
+              "blocks": [
+                {
+                  "type": "from_shared",
+                  "key": "p5",
+                  "label": "5"
+                },
+                {
+                  "type": "answer_box"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "heading": "Show what you know",
+          "blocks": [
+            {
+              "type": "group",
+              "blocks": [
+                {
+                  "type": "from_shared",
+                  "key": "exit_ticket"
+                },
+                {
+                  "type": "answer_box",
+                  "ruled": true
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hint_cards",
+      "audience": "student",
+      "eyebrow": "Grade 6 Mathematics · Hint Cards",
+      "title": "Stuck? Pick a hint card",
+      "sections": [
+        {
+          "heading": "Hint cards",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Take one card only when your pair is stuck."
+            },
+            {
+              "type": "from_shared",
+              "key": "hint_cards"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "observation_template",
+      "audience": "teacher",
+      "eyebrow": "Grade 6 Mathematics · Observation Template",
+      "title": "Grocery Store Showdown Observation",
+      "sections": [
+        {
+          "heading": "How to use this",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Circulate during Explore. Tally what you see in the Look-fors grid; star one ratio-table scaler and one divider to share in Discuss. After class, sort exit tickets into the three piles below."
+            }
+          ]
+        },
+        {
+          "heading": "Look-fors",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "look_fors"
+            },
+            {
+              "type": "fill_table",
+              "headers": [
+                "Student",
+                "Strategy seen",
+                "Next step"
+              ],
+              "blank_rows": 8,
+              "row_height_pt": 26
+            }
+          ]
+        },
+        {
+          "heading": "Anticipated challenges",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "misconceptions"
+            }
+          ]
+        },
+        {
+          "heading": "Exit-ticket sort",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "exit_ticket"
+            },
+            {
+              "type": "from_shared",
+              "key": "exit_sort"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

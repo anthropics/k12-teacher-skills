@@ -1,0 +1,8 @@
+{
+  "name": "k12-teacher-skills",
+  "version": "0.6.0",
+  "description": "Skills and MCPs for K-12 Education, including standards-aligned lesson planning and lesson differentiation across math, ELA, science, and social studies.",
+  "author": {
+    "name": "Anthropic"
+  }
+}

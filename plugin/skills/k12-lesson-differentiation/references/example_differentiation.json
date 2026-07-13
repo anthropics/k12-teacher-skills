@@ -1,0 +1,519 @@
+{
+  "shared": {
+    "subject": "Mathematics",
+    "grade": "Grade 4",
+    "standard_code": "4.NF.B.3.d",
+    "standard_text": "Solve word problems involving addition and subtraction of fractions referring to the same whole and having like denominators, e.g., by using visual fraction models and equations to represent the problem.",
+    "t1": {
+      "teacher": "Core task — watch for adding denominators (3/8 + 2/8 = 5/16).",
+      "student": "Maria's family ate 3/8 of a veggie pizza and 2/8 of the same pizza later. How much of the pizza did they eat in all?"
+    },
+    "t2": {
+      "teacher": "Stretch task — subtraction from the combined amount; expect tape-diagram or equation strategies.",
+      "student": "After eating, 1/8 of the pizza fell on the floor. How much pizza is left to share?"
+    },
+    "exit_ticket": {
+      "teacher": "Sort responses: *Got it* — correct with a convincing picture or equation; *Almost there* — right answer, shaky justification; *Needs re-teaching* — added denominators.",
+      "student": "Jon says 4/6 + 1/6 = 5/12. Is he right? Use a picture or equation to prove your answer."
+    },
+    "vocabulary": {
+      "type": "table",
+      "rows": [
+        [
+          "denominator",
+          "The bottom number of a fraction — how many equal parts the whole is split into."
+        ],
+        [
+          "like denominators",
+          "Fractions whose wholes are split into the same number of parts."
+        ]
+      ]
+    },
+    "sentence_frames": {
+      "type": "labeled",
+      "label": "Finish these sentences",
+      "text": "I know ____________ and ____________. The part I don't know is ____________.\nMy strategy was ____________ because ____________."
+    },
+    "misconceptions": {
+      "type": "table",
+      "headers": [
+        "What students do",
+        "Why it happens",
+        "Teacher move"
+      ],
+      "rows": [
+        [
+          "Adds denominators as well as numerators (3/8 + 2/8 = 5/16)",
+          "Treats numerator and denominator as separate whole numbers",
+          "Return to the tape diagram: how many eighths in all?"
+        ]
+      ]
+    },
+    "anchor_activity": "Finished early? Choose one problem from this page and prove your answer a second way, using a tape diagram. Then write one new question about the pizza whose answer is more than one whole, and solve it.",
+    "reflect_prompt": "What strategy did you use and why?"
+  },
+  "theme": {
+    "primary": "#17A267"
+  },
+  "documents": [
+    {
+      "id": "teacher_plan",
+      "audience": "teacher",
+      "eyebrow": "Grade 4 Mathematics · Differentiation Plan",
+      "title": "Adding Fractions with Like Denominators — Differentiation Plan",
+      "meta": "4.NF.B.3.d · 60 minutes · Below (Group A) / At (Group B) / Above (Group C)",
+      "sections": [
+        {
+          "heading": "Overview",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "standard"
+            },
+            {
+              "type": "paragraph",
+              "text": "All three tiers work the same pizza context with the same core problems. Only the supports differ."
+            },
+            {
+              "type": "from_shared",
+              "key": "t1",
+              "label": "1"
+            },
+            {
+              "type": "from_shared",
+              "key": "t2",
+              "label": "2"
+            },
+            {
+              "type": "from_shared",
+              "key": "exit_ticket"
+            }
+          ]
+        },
+        {
+          "heading": "Flexible grouping",
+          "blocks": [
+            {
+              "type": "labeled",
+              "label": "Basis",
+              "text": "Default profile applied — no diagnostic data available. If you have a recent fractions exit ticket or work sample, place students from that instead."
+            },
+            {
+              "type": "labeled",
+              "label": "Revisable",
+              "text": "Tier placement holds for this lesson only. Regroup on today's exit ticket: a Below student who solves Problem 2 unaided moves up; anyone who adds the denominators works with the Below supports tomorrow."
+            }
+          ]
+        },
+        {
+          "heading": "Below tier (Group A)",
+          "blocks": [
+            {
+              "type": "labeled",
+              "label": "Grounded in prerequisite",
+              "text": "3.NF.A.1 — Understand a fraction 1/b as the quantity formed by 1 part when a whole is partitioned into b equal parts."
+            },
+            {
+              "type": "from_shared",
+              "key": "misconceptions"
+            },
+            {
+              "type": "labeled",
+              "label": "Worksheet tasks",
+              "text": "P1 (shaded-diagram entry task + know/need table), P2, exit ticket, 'If you finish early' anchor task, Reflect prompt."
+            }
+          ]
+        },
+        {
+          "heading": "At tier (Group B)",
+          "blocks": [
+            {
+              "type": "labeled",
+              "label": "Worksheet tasks",
+              "text": "P1, P2, exit ticket, 'If you finish early' anchor task, Reflect prompt."
+            }
+          ]
+        },
+        {
+          "heading": "Above tier (Group C)",
+          "blocks": [
+            {
+              "type": "labeled",
+              "label": "Worksheet tasks",
+              "text": "P1, P2, 'Go further' extension (write-your-own problem + error-explanation problem), exit ticket, 'If you finish early' anchor task, Reflect prompt."
+            }
+          ]
+        },
+        {
+          "heading": "Why this works (1)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Below tier keeps both grade-level problems and adds a shaded-diagram entry and a know/need table before Problem 1 only. Students act on the model before the symbols, so the standard's full demand stays while the entry cost drops — and the scaffold fades by Problem 2."
+            }
+          ]
+        },
+        {
+          "heading": "Why this works (2)",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The Above extension asks students to write and critique problems rather than compute more of them. Authoring a sum-greater-than-one story and explaining a wrong answer deepen 4.NF.B.3.d instead of moving past it, and both reuse the shared pizza context so tiers stay comparable."
+            }
+          ]
+        },
+        {
+          "heading": "Formative check",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Collect the exit ticket from every tier and sort into three piles: correct with a matching model; adds the denominators; miscounts the shaded parts."
+            },
+            {
+              "type": "labeled",
+              "label": "Next day",
+              "text": "Denominator pile re-enters through the shaded diagram; miscount pile recounts a partitioned model with you; correct pile starts on the anchor task."
+            }
+          ]
+        },
+        {
+          "heading": "Anchor activity",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "anchor_activity"
+            },
+            {
+              "type": "labeled",
+              "label": "Deployment",
+              "text": "Printed on all three worksheets. Deploy after the exit ticket; standard-aligned because proving with a tape diagram and generating a sum-greater-than-one problem both exercise 4.NF.B.3.d."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worksheet_group_a",
+      "audience": "student",
+      "eyebrow": "Grade 4 Mathematics · 4.NF.B.3.d",
+      "title": "Group A — Pizza Fractions",
+      "meta": "Name: ____________________    Date: ____________",
+      "sections": [
+        {
+          "heading": "Vocabulary",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "vocabulary"
+            }
+          ]
+        },
+        {
+          "heading": "Sentence supports",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "sentence_frames"
+            }
+          ]
+        },
+        {
+          "heading": "Problems",
+          "blocks": [
+            {
+              "type": "labeled",
+              "label": "For Problem 1 — try it with the diagram",
+              "text": "The pizza below is cut into 8 equal slices. Shade the slices Maria's family ate first, then shade the slices they ate later in a different way."
+            },
+            {
+              "type": "table",
+              "headers": [
+                "What I know",
+                "What I need to find"
+              ],
+              "rows": [
+                [
+                  "",
+                  ""
+                ]
+              ],
+              "empty_row_height_pt": 26
+            },
+            {
+              "type": "from_shared",
+              "key": "t1",
+              "label": "1"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "from_shared",
+              "key": "t2",
+              "label": "2"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 80
+            }
+          ]
+        },
+        {
+          "heading": "Show what you know",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "exit_ticket"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 90
+            }
+          ]
+        },
+        {
+          "heading": "If you finish early",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "anchor_activity"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 90
+            }
+          ]
+        },
+        {
+          "heading": "Reflect",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "reflect_prompt"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worksheet_group_b",
+      "audience": "student",
+      "eyebrow": "Grade 4 Mathematics · 4.NF.B.3.d",
+      "title": "Group B — Pizza Fractions",
+      "meta": "Name: ____________________    Date: ____________",
+      "sections": [
+        {
+          "heading": "Vocabulary",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "vocabulary"
+            }
+          ]
+        },
+        {
+          "heading": "Sentence supports",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "sentence_frames"
+            }
+          ]
+        },
+        {
+          "heading": "Problems",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "t1",
+              "label": "1"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "from_shared",
+              "key": "t2",
+              "label": "2"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 100
+            }
+          ]
+        },
+        {
+          "heading": "Show what you know",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "exit_ticket"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 90
+            }
+          ]
+        },
+        {
+          "heading": "If you finish early",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "anchor_activity"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 90
+            }
+          ]
+        },
+        {
+          "heading": "Reflect",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "reflect_prompt"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 60
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "worksheet_group_c",
+      "audience": "student",
+      "eyebrow": "Grade 4 Mathematics · 4.NF.B.3.d",
+      "title": "Group C — Pizza Fractions",
+      "meta": "Name: ____________________    Date: ____________",
+      "sections": [
+        {
+          "heading": "Vocabulary",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "vocabulary"
+            }
+          ]
+        },
+        {
+          "heading": "Sentence supports",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "sentence_frames"
+            }
+          ]
+        },
+        {
+          "heading": "Problems",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "t1",
+              "label": "1"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "from_shared",
+              "key": "t2",
+              "label": "2"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 100
+            }
+          ]
+        },
+        {
+          "heading": "Go further",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Write your own fraction story problem where the answer is 7/8. Then write a second one where someone could make the mistake of adding the denominators — and explain how you would help them see the error."
+            },
+            {
+              "type": "workspace",
+              "height_pt": 110
+            }
+          ]
+        },
+        {
+          "heading": "Show what you know",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "exit_ticket"
+            },
+            {
+              "type": "workspace",
+              "size": "large"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 90
+            }
+          ]
+        },
+        {
+          "heading": "If you finish early",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "anchor_activity"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 90
+            }
+          ]
+        },
+        {
+          "heading": "Reflect",
+          "blocks": [
+            {
+              "type": "from_shared",
+              "key": "reflect_prompt"
+            },
+            {
+              "type": "workspace",
+              "height_pt": 60
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
