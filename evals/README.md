@@ -10,7 +10,7 @@ Each rubric criterion represents a specific aspect of an LLM-generated classroom
 ## **Evals contents**
 | Rubric | Description |
 | :---- | :---- |
-| k12-lesson-planning/rubrics/ | Rubrics for scoring lesson-plan outputs: `shared.csv` (core criteria for all lessons) plus subject-specific `math.csv`, `ela.csv`, `science.csv`, and `social_studies.csv` |
+| k12-lesson-planning/rubrics/ | Rubrics for scoring lesson-plan outputs: `shared.csv` (core criteria for all lessons) plus subject-specific `math.csv`, `ela.csv`, `science.csv`, and `social_studies.csv`; `cross_curricular.csv` layers on additionally when the lesson integrates a supporting subject |
 | k12-lesson-differentiation/rubrics/ | Rubrics for scoring differentiation outputs: `differentiation.csv` (tiered differentiation criteria) and `clarifying_question.csv` (scorer for model clarification behavior) |
 
 ---
