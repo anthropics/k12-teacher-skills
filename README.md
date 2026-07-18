@@ -1,9 +1,10 @@
-# Agent Skills for K-12 Teachers
+# Agent Skills for K-12 and Cybersecurity Educators
 Source code and evaluation framework for the agent skills that are included with [Claude for Teachers](https://claude.com/solutions/teachers). 
 
-Included are two skills:
+Included are three skills:
 - `k12-lesson-planning`: Builds classroom-ready, standards-aligned lesson plans, optionally aligned to a teacher's curriculum
 - `k12-lesson-differentiation`: Adapts an existing lesson into tiered versions (below / at / above proficiency-level) and for specific student needs, keeping core content consistent across tiers
+- `cyber-lesson-planning`: Builds safe, hands-on cybersecurity lessons, learner activities, performance assessments, and K-12 or workforce alignment maps
 
 Where noted, materials in this repo were co-developed between Anthropic and Learning Commons, who collaborated to help Claude create classroom materials that are grounded in academic standards and follow best practices from learning science research.
 
@@ -19,7 +20,7 @@ If you have a Claude for Teachers account, there is no extra install needed. The
 Load the plugin or skills manually. For instance, in Claude Code:
 
 ```
-git clone https://github.com/anthropics/k12-teacher-skills
+git clone https://github.com/PowerFlower1/k12-teacher-skills
 claude plugin marketplace add ./k12-teacher-skills/plugin
 claude plugin install k12-teacher-skills@k12-teacher-skills
 ```

@@ -1,0 +1,177 @@
+{
+  "shared": {
+    "program": "Ready Force Cyber OpenED",
+    "learner_type": "Grades 9-12",
+    "experience_level": "Beginner",
+    "delivery_mode": "In person or live online",
+    "duration": "75 minutes",
+    "topic": "Defensive authentication-log analysis",
+    "outcome": "Given a synthetic authentication log, learners will identify suspicious activity, cite three relevant log entries, construct an incident timeline, and recommend a safe containment step.",
+    "authorization_scope": "Use only the synthetic log printed in this packet. Do not test accounts, devices, websites, or networks.",
+    "stop_conditions": "Stop and notify the instructor if the activity appears to contain real personal data, credentials, routable targets, or instructions that affect a live system.",
+    "scenario": "Northbridge Library uses a fictional remote-access service. Its security team received an alert after several failed sign-ins and one successful sign-in outside normal hours. Analyze the supplied synthetic events and prepare a short incident note.",
+    "log_data": {
+      "type": "table",
+      "headers": ["Time (UTC)", "Account", "Source", "Result"],
+      "rows": [
+        ["08:12", "a.lee", "192.0.2.24", "Success"],
+        ["22:41", "m.ortiz", "198.51.100.77", "Failed"],
+        ["22:42", "m.ortiz", "198.51.100.77", "Failed"],
+        ["22:44", "m.ortiz", "198.51.100.77", "Success"],
+        ["22:47", "m.ortiz", "198.51.100.77", "New device registered"]
+      ]
+    },
+    "learner_tasks": {
+      "student": "1. Mark the three events most relevant to the alert.\n2. Build a timeline that explains what may have happened.\n3. Write one alternative explanation that would make the activity less suspicious.\n4. Recommend the first safe containment or verification step.\n5. Submit the evidence table and incident note.",
+      "teacher": "Require learners to distinguish evidence from inference. Accept multiple defensible conclusions when they cite the supplied events and propose a proportionate defensive response."
+    },
+    "cleanup": "Return or delete the synthetic worksheet as directed. No accounts, devices, or services were changed during this activity.",
+    "alignment_summary": "Provisional workforce alignment: defensive analysis and incident-response communication. Verify exact current NICE Task, Knowledge, and Skill statements before delivery.",
+    "sources": {
+      "type": "list",
+      "items": [
+        "NICE Framework Resource Center — https://www.nist.gov/itl/applied-cybersecurity/nice/nice-framework-resource-center",
+        "CYBER.ORG K-12 Cybersecurity Learning Standards — https://cyber.org/initiatives/standards"
+      ]
+    }
+  },
+  "theme": {
+    "primary": "#173F5F",
+    "title_color": "#173F5F"
+  },
+  "documents": [
+    {
+      "id": "instructor_guide",
+      "audience": "teacher",
+      "eyebrow": "Ready Force Cyber OpenED · Instructor Guide",
+      "title": "Authentication Alert: Evidence Before Conclusions",
+      "meta": "Grades 9-12 · Beginner · 75 minutes",
+      "sections": [
+        {
+          "heading": "Lesson outcome",
+          "blocks": [
+            {"type": "from_shared", "key": "outcome"},
+            {"type": "labeled", "label": "Evidence collected", "text": "Annotated log entries, an incident timeline, an alternative explanation, and a short containment recommendation."}
+          ]
+        },
+        {
+          "heading": "Safety and setup",
+          "blocks": [
+            {"type": "labeled", "label": "Authorized scope", "text": "Use only the synthetic log printed in this packet. Do not test accounts, devices, websites, or networks."},
+            {"type": "from_shared", "key": "stop_conditions"},
+            {"type": "labeled", "label": "Environment", "text": "No lab accounts, terminal, internet access, or administrator privileges are required."}
+          ]
+        },
+        {
+          "heading": "Learning sequence",
+          "blocks": [
+            {"type": "phase_header", "name": "Connect", "minutes": 10},
+            {"type": "paragraph", "text": "Ask what makes a login event relevant. Establish that an unusual event is evidence to investigate, not proof of wrongdoing."},
+            {"type": "phase_header", "name": "Model", "minutes": 15},
+            {"type": "paragraph", "text": "Model separating observation, inference, and next action using the first two events."},
+            {"type": "phase_header", "name": "Practice and perform", "minutes": 35},
+            {"type": "from_shared", "key": "learner_tasks"},
+            {"type": "phase_header", "name": "Debrief and assess", "minutes": 15},
+            {"type": "paragraph", "text": "Compare defensible timelines and discuss why verification and scoped containment should precede disruptive action."}
+          ]
+        },
+        {
+          "heading": "Facilitation and troubleshooting",
+          "blocks": [
+            {"type": "table", "headers": ["Likely difficulty", "Teacher move"], "rows": [
+              ["Treating a failed login as proof of compromise", "Ask which event is directly observed and what additional evidence is missing."],
+              ["Recommending deletion or retaliation", "Return to proportionate defensive steps: verify, preserve evidence, contain access, and escalate."],
+              ["Focusing on every row equally", "Ask which entries change the incident story and why."]
+            ]},
+            {"type": "labeled", "label": "Offline/accessibility option", "text": "Provide the log as a large-print table or accessible digital table. Permit an oral incident briefing paired with a completed evidence table."}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "learner_activity",
+      "audience": "student",
+      "eyebrow": "Ready Force Cyber OpenED · Learner Activity",
+      "title": "Authentication Alert Investigation",
+      "meta": "Name: ____________________    Date: ____________",
+      "sections": [
+        {
+          "heading": "Your mission",
+          "blocks": [
+            {"type": "from_shared", "key": "scenario"},
+            {"type": "callout", "kind": "special", "label": "Authorized scope", "text": "Use only the synthetic log on this page. Do not test accounts, devices, websites, or networks."},
+            {"type": "from_shared", "key": "stop_conditions"}
+          ]
+        },
+        {
+          "heading": "Authentication log",
+          "blocks": [
+            {"type": "from_shared", "key": "log_data"}
+          ]
+        },
+        {
+          "heading": "Investigation tasks",
+          "blocks": [
+            {"type": "from_shared", "key": "learner_tasks"},
+            {"type": "fill_table", "headers": ["Event", "What it shows", "Why it matters"], "blank_rows": 4, "row_height_pt": 60},
+            {"type": "labeled_box", "label": "Incident timeline", "height_pt": 120},
+            {"type": "labeled_box", "label": "Incident note and recommended next step", "height_pt": 150, "ruled": true}
+          ]
+        },
+        {
+          "heading": "Reflect and close",
+          "blocks": [
+            {"type": "paragraph", "text": "What additional evidence would most increase your confidence in the conclusion?"},
+            {"type": "answer_box", "height_pt": 75, "ruled": true},
+            {"type": "from_shared", "key": "cleanup"}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "performance_rubric",
+      "audience": "teacher",
+      "eyebrow": "Ready Force Cyber OpenED · Assessment",
+      "title": "Authentication Alert Performance Rubric",
+      "meta": "Score evidence produced in the learner activity",
+      "sections": [
+        {
+          "heading": "Rubric",
+          "blocks": [
+            {"type": "table", "headers": ["Criterion", "Proficient evidence", "Developing evidence"], "rows": [
+              ["Technical accuracy", "Timeline accurately orders and describes relevant events.", "Timeline contains an unsupported or contradictory claim."],
+              ["Evidence use", "Conclusion cites at least three relevant log entries.", "Conclusion relies mainly on assumptions or uncited rows."],
+              ["Defensive reasoning", "Next step is proportionate, protective, and acknowledges uncertainty.", "Next step is disruptive, retaliatory, or unrelated to the evidence."],
+              ["Safe practice", "Work remains within the supplied artifact and handles data appropriately.", "Response proposes activity outside the stated scope."],
+              ["Communication", "Incident note separates observations, inference, and recommendation.", "Reader cannot distinguish evidence from conclusion."]
+            ]}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "alignment_map",
+      "audience": "teacher",
+      "eyebrow": "Ready Force Cyber OpenED · Alignment Map",
+      "title": "Authentication Alert Alignment and Career Connection",
+      "meta": "Verify current framework components before delivery",
+      "sections": [
+        {
+          "heading": "Instructional alignment",
+          "blocks": [
+            {"type": "from_shared", "key": "alignment_summary"},
+            {"type": "labeled", "label": "Demonstrated work", "text": "Analyze authentication events, document evidence, communicate uncertainty, and recommend a defensive next step."},
+            {"type": "labeled", "label": "Career connection", "text": "These practices appear in security operations, incident response, help-desk escalation, and identity and access management work."}
+          ]
+        },
+        {
+          "heading": "Sources",
+          "blocks": [
+            {"type": "from_shared", "key": "sources"},
+            {"type": "paragraph", "text": "Record exact identifiers, framework version, source URL, and verification date after checking the current official framework."}
+          ]
+        }
+      ]
+    }
+  ]
+}

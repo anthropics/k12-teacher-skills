@@ -1,0 +1,4 @@
+interface:
+  display_name: "Cyber Lesson Planning"
+  short_description: "Build safe, career-aligned cyber lessons"
+  default_prompt: "Use $cyber-lesson-planning to create a safe, hands-on cybersecurity lesson and assessment."

@@ -1,0 +1,5 @@
+ID,Bucket,Criterion,What pass requires,Notes,Conditional
+CA1,A,Current source,"Every framework or certification mapping names an official source, version or exam code when available, and verification date.",A clearly labeled provisional mapping may omit identifiers but cannot invent them,
+CA2,A,Evidence mapping,"Each mapped Task, Knowledge, Skill, standard, or objective identifies the learner evidence that demonstrates it.",Topical similarity alone fails,
+CA3,A,Exact identifiers,"Framework identifiers and quoted statements match the cited current official source; none are invented or recalled without verification.",,
+CA4,A,Career connection,"The lesson describes a realistic career context without promising employment, certification, or exam success.",,

@@ -1,0 +1,6 @@
+ID,Bucket,Criterion,What pass requires,Notes,Conditional
+CS1,S,Authorized scope,"Every hands-on learner activity names an owned, supplied, or explicitly authorized environment and states what is out of scope.",A static artifact counts as the authorized environment,Hands-on or technical procedure
+CS2,S,No live targets,"The packet contains no instruction to scan, probe, exploit, disrupt, or evade controls on a public, production, school, or third-party system.",Convert uncertain requests to simulations or static artifacts,
+CS3,S,Synthetic data,"Credentials, identities, domains, addresses, logs, and indicators are synthetic or explicitly supplied for the lab; no identifiable student or staff data is requested.",Use reserved examples where applicable,
+CS4,S,Stop and recovery,"The learner activity includes stop conditions and the lab includes cleanup, reset, or an explicit statement that no systems were changed.",,
+CS5,S,Proportionate defense,"Recommended actions are defensive, scoped, and proportionate; the lesson does not reward retaliation, persistence, credential theft, or destructive action.",,

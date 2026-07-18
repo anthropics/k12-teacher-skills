@@ -1,0 +1,7 @@
+ID,Bucket,Criterion,What pass requires,Notes,Conditional
+CI1,P,Observable outcome,"The lesson states what learners will do, what evidence they will produce, and the success criteria.",,
+CI2,P,Performance evidence,"At least one assessment requires observable cybersecurity work rather than recall alone.",,
+CI3,P,Sequence coherence,"Modeling and guided practice prepare learners for the independent performance without completing it for them.",,
+CI4,R,Rigor preserved,"Support profiles change scaffolding rather than replacing the target competency with an easier outcome.",,Multiple support profiles
+CI5,O,Instructor readiness,"The instructor guide includes setup, facilitation, misconceptions or likely difficulties, expected evidence, and troubleshooting.",,
+CI6,O,Accessibility,"The packet provides a viable low-technology or accessibility alternative when tool or interface access could exclude learners.",,

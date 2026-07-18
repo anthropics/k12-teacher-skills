@@ -1,0 +1,93 @@
+/* Copyright 2026 Anthropic, PBC
+   Copyright 2026 Learning Commons
+   SPDX-License-Identifier: Apache-2.0 */
+
+/* Lesson artifact stylesheet — designer-editable.
+   :root vars (--primary, --text, --muted, --rule, --border, --title-size, --body-size)
+   are injected by render_lesson_html.css(). Everything else lives here. */
+
+body{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--text);margin:0;background:#fff}
+.page{max-width:7.1in;margin:0 auto;padding:36pt 24pt;font-size:var(--body-size);line-height:1.55}
+
+/* --- header ------------------------------------------------------------ */
+.hdr{margin-bottom:12pt}
+.eyebrow{color:var(--primary);font-size:9pt;font-weight:700;letter-spacing:1.2pt;text-transform:uppercase}
+.title{color:var(--text);font-size:var(--title-size);font-weight:700;line-height:1.2;letter-spacing:-0.3pt;margin-top:6pt}
+.meta{color:var(--muted);font-size:9pt;margin-top:7pt;line-height:1.5}
+
+/* --- headings ---------------------------------------------------------- */
+.h1{font-size:14pt;font-weight:700;letter-spacing:-0.1pt;border-top:1pt solid var(--rule);
+    padding-top:18pt;margin:24pt 0 12pt;page-break-after:avoid}
+.h2{font-size:12pt;font-weight:700;color:var(--primary);margin:16pt 0 8pt;page-break-after:avoid}
+.h2.phase{display:flex;justify-content:space-between;align-items:baseline}
+.h2 .mins{font-weight:400;font-size:9pt;color:var(--muted)}
+.h3{font-size:10.5pt;font-weight:700;margin:12pt 0 6pt;page-break-after:avoid}
+
+/* --- body -------------------------------------------------------------- */
+p{margin:0 0 8pt}
+.listlabel{margin:10pt 0 2pt}
+ul,ol{margin:0 0 10pt;padding-left:20pt}li{margin:0 0 5pt}
+ul.check{list-style:none;padding-left:4pt}ul.check li:before{content:"\2610  "}
+.instr{color:var(--text);margin:8pt 0 10pt}
+
+/* --- callouts (icon-differentiated, B+W-safe) -------------------------- */
+.co{border:1pt solid var(--border);border-radius:6pt;padding:10pt 12pt;margin:6pt 0 12pt;
+    page-break-inside:avoid}
+.co-label{font-size:9.5pt;margin-bottom:4pt;display:flex;gap:6pt;align-items:baseline}
+.co-icon{font-size:11pt;line-height:1}
+.co.special{border-color:#5BB088}
+.co.task{border-color:#9FB8D8}
+.co.tnote{border-color:#E8C98A}
+.co.snote{border-color:#E8C98A}
+
+/* --- tables ------------------------------------------------------------ */
+table{width:100%;border-collapse:separate;border-spacing:0;margin:4pt 0 14pt;
+      font-size:9pt;line-height:1.45;border:0.6pt solid var(--border);border-radius:6pt;
+      overflow:hidden}
+th,td{border-bottom:0.6pt solid var(--border);border-right:0.6pt solid var(--border);
+      padding:7pt 9pt;text-align:left;vertical-align:top}
+th:last-child,td:last-child{border-right:none}
+tr:last-child td{border-bottom:none}
+tr{page-break-inside:avoid}
+th{background:#F6F8F9;font-weight:700}
+table.headless td:first-child{font-weight:600}
+
+/* --- cards ------------------------------------------------------------- */
+.cards{display:flex;gap:12pt;margin:6pt 0 14pt}
+.card{flex:1;border:0.8pt solid var(--border);border-radius:6pt;padding:10pt 12pt;
+      background:#FAFBFB;page-break-inside:avoid}
+.card-title{font-weight:700;font-size:9.5pt;margin-bottom:4pt}
+.card-body{font-size:9pt}
+
+/* --- worksheet primitives --------------------------------------------- */
+.fillin-row{margin:0 0 10pt}
+.fillin{display:inline-block;border-bottom:0.8pt solid var(--text);height:1.1em;vertical-align:baseline}
+.ans{margin:0 0 14pt}
+.ansline{border-bottom:0.7pt solid #C9CFD4}
+.cols{display:flex;gap:24pt}.cols>div{flex:1;min-width:0}
+
+/* --- registry block types (source_card, number_line) -------------------- */
+.sourcecard{border:0.8pt solid var(--border);border-left:3pt solid var(--primary);
+            border-radius:4pt;padding:9pt 12pt;margin:6pt 0 14pt;page-break-inside:avoid}
+.sourcecard .sc-head{font-size:9.5pt;margin-bottom:5pt}
+.sourcecard .sc-meta{color:var(--muted);font-weight:400}
+.sourcecard .sc-body{font-size:9.5pt;line-height:1.55;white-space:pre-wrap}
+.numberline{margin:10pt 0 18pt;padding:0 8pt}
+.numberline .nl-bar{position:relative;height:28pt;border-top:1.5pt solid var(--text);margin-top:14pt}
+.numberline .nl-tick{position:absolute;top:-6pt;width:0;border-left:1pt solid var(--text);height:10pt}
+.numberline .nl-lab{position:absolute;top:11pt;left:0;transform:translateX(-50%);
+                    font-size:8.5pt;white-space:nowrap}
+.numberline .nl-mark{position:absolute;top:-10pt;width:0;height:0;border-left:5pt solid transparent;
+                     border-right:5pt solid transparent;border-top:8pt solid var(--primary);
+                     transform:translateX(-5pt)}
+.numberline .nl-mlab{position:absolute;top:-22pt;left:0;transform:translateX(-50%);
+                     font-size:8.5pt;font-weight:600;white-space:nowrap;color:var(--primary)}
+
+/* --- misc -------------------------------------------------------------- */
+.pagebreak{page-break-after:always;border:none;margin:0;height:0}
+.footer{color:var(--muted);font-size:8pt;margin-top:20pt}
+
+@media print{.page{padding:0}body{background:#fff}}
+
+/* --- large display tables (K-2 word grids, sort cards) ------------------ */
+table.display-large td{font-size:18pt;font-weight:600;text-align:center;padding:10pt 12pt;letter-spacing:0.5pt}
