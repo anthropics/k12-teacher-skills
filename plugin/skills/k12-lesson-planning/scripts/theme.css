@@ -7,6 +7,7 @@
    are injected by render_lesson_html.css(). Everything else lives here. */
 
 body{font-family:'Helvetica Neue',Arial,sans-serif;color:var(--text);margin:0;background:#fff}
+h1,h2,h3,h4{margin:0;font-size:inherit;font-weight:inherit}
 .page{max-width:7.1in;margin:0 auto;padding:36pt 24pt;font-size:var(--body-size);line-height:1.55}
 
 /* --- header ------------------------------------------------------------ */
@@ -35,10 +36,10 @@ ul.check{list-style:none;padding-left:4pt}ul.check li:before{content:"\2610  "}
     page-break-inside:avoid}
 .co-label{font-size:9.5pt;margin-bottom:4pt;display:flex;gap:6pt;align-items:baseline}
 .co-icon{font-size:11pt;line-height:1}
-.co.special{border-color:#5BB088}
-.co.task{border-color:#9FB8D8}
-.co.tnote{border-color:#E8C98A}
-.co.snote{border-color:#E8C98A}
+.co.special{border-color:#2F855A}
+.co.task{border-color:#5B7FB8}
+.co.tnote{border-color:#B8860B}
+.co.snote{border-color:#B8860B}
 
 /* --- tables ------------------------------------------------------------ */
 table{width:100%;border-collapse:separate;border-spacing:0;margin:4pt 0 14pt;
@@ -63,7 +64,7 @@ table.headless td:first-child{font-weight:600}
 .fillin-row{margin:0 0 10pt}
 .fillin{display:inline-block;border-bottom:0.8pt solid var(--text);height:1.1em;vertical-align:baseline}
 .ans{margin:0 0 14pt}
-.ansline{border-bottom:0.7pt solid #C9CFD4}
+.ansline{border-bottom:0.7pt solid #919191}
 .cols{display:flex;gap:24pt}.cols>div{flex:1;min-width:0}
 
 /* --- registry block types (source_card, number_line) -------------------- */

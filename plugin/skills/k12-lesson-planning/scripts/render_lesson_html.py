@@ -33,7 +33,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lesson_common import (  # noqa: E402
     DEFAULT_THEME, Theme, CALLOUT_KINDS,
     btype as _btype, resolve_callout_kind as _resolve_callout_kind,
-    answer_profile, expand_document, build_header, preamble_blocks, coerce_marks,
+    answer_profile, expand_document, build_header, preamble_blocks, coerce_marks, item_text,
     workspace_height, normalize_text, label_text, label_sep, table_row_height,
     coerce_headers, coerce_rows,
 )
@@ -96,15 +96,21 @@ def render_block(blk: dict, theme: Theme) -> str:
         lbl = label_text(blk)
         return f"<p><b>{md(lbl)}{label_sep(lbl)}</b> {md(blk.get('text', ''))}</p>"
     if t == "h2":
-        return f"<div class=\"h2\">{md(blk.get('text', ''))}</div>"
+        # Heading levels come from document context (theme.hbase/theme.hsub, set in
+        # render()) so the outline never skips a level — an "h3" block directly under
+        # a section heading must land at h3, not a fixed h4 (axe: heading-order).
+        lvl = getattr(theme, "hbase", 3)
+        theme.hsub = True
+        return f"<h{lvl} class=\"h2\">{md(blk.get('text', ''))}</h{lvl}>"
     if t == "h3":
-        return f"<div class=\"h3\">{md(blk.get('text', ''))}</div>"
+        lvl = getattr(theme, "hbase", 3) + (1 if getattr(theme, "hsub", False) else 0)
+        return f"<h{lvl} class=\"h3\">{md(blk.get('text', ''))}</h{lvl}>"
     if t == "instructions":
         return f"<p class=\"instr\">{md(blk.get('text', ''))}</p>"
     if t in ("list", "checklist"):
         cls = ' class="check"' if t == "checklist" else ""
         tag = "ol" if blk.get("ordered") else "ul"
-        items = "".join(f"<li>{md(i)}</li>" for i in blk.get("items", []))
+        items = "".join(f"<li>{md(item_text(i))}</li>" for i in blk.get("items", []))
         head = (f"<p class=\"listlabel\"><b>{md(label_text(blk))}</b></p>"
                 if blk.get("label") else "")
         return f"{head}<{tag}{cls}>{items}</{tag}>"
@@ -131,15 +137,17 @@ def render_block(blk: dict, theme: Theme) -> str:
         return f"<div class=\"cards\">{cards}</div>"
     if t == "fill_in":
         size = FILL_IN_SIZES.get(str(blk.get("size", "med")).lower(), FILL_IN_SIZES["med"])
-        line = f"<span class=\"fillin\" style=\"width:{size}\"></span>"
+        line = f"<span class=\"fillin\" role=\"img\" aria-label=\"blank\" style=\"width:{size}\"></span>"
         if blk.get("label"):
             return f"<p class=\"fillin-row\"><b>{md(label_text(blk))}:</b> {line}</p>"
         return f"<p class=\"fillin-row\">{line}</p>"
     if t == "phase_header":
         mins = blk.get("minutes")
         right = f"<span class=\"mins\">{md(mins)} min</span>" if mins is not None else ""
-        return (f"<div class=\"h2 phase\"><span>{md(blk.get('name', ''))}</span>"
-                f"{right}</div>")
+        lvl = getattr(theme, "hbase", 3)
+        theme.hsub = True
+        return (f"<h{lvl} class=\"h2 phase\"><span>{md(blk.get('name', ''))}</span>"
+                f"{right}</h{lvl}>")
     if t == "group":
         inner = "".join(render_block(b, theme) for b in blk.get("blocks", []))
         return f"<div style=\"page-break-inside:avoid\">{inner}</div>"
@@ -155,12 +163,13 @@ def render_block(blk: dict, theme: Theme) -> str:
         headers = coerce_headers(blk.get("headers"))
         head = ""
         if headers:
-            head = ("<tr>" + "".join(f"<th>{md(str(h).rstrip(': '))}</th>" for h in headers)
+            head = ("<tr>" + "".join(f"<th scope=\"col\">{md(str(h).rstrip(': '))}</th>" for h in headers)
                     + "</tr>")
         rows = []
         for r in coerce_rows(blk.get("rows")):
             # An underscore run is the model writing "blank to fill in" — render it as a
             # real blank cell, not literal underscores.
+            r = [item_text(c) for c in r]
             r = ["" if str(c).strip().strip("_") == "" and "_" in str(c) else c for c in r]
             full_blank = not any(str(c).strip() for c in r)
             row_h = table_row_height(blk, theme, full_blank=full_blank)
@@ -191,7 +200,7 @@ def render_block(blk: dict, theme: Theme) -> str:
     if t == "fill_table":
         headers = coerce_headers(blk.get("headers"))
         row_h = table_row_height(blk, theme, full_blank=True)
-        head = ("<tr>" + "".join(f"<th>{md(h)}</th>" for h in headers) + "</tr>") if headers else ""
+        head = ("<tr>" + "".join(f"<th scope=\"col\">{md(h)}</th>" for h in headers) + "</tr>") if headers else ""
         try:
             cols = max(1, len(headers) or int(blk.get("cols") or 2))
         except (TypeError, ValueError):
@@ -250,14 +259,16 @@ def render_block(blk: dict, theme: Theme) -> str:
             f"<span class=\"nl-mark\" style=\"left:{((v-lo_f)/span)*100:.2f}%\"></span>"
             + (f"<span class=\"nl-mlab\" style=\"left:{((v-lo_f)/span)*100:.2f}%\">{md(lab)}</span>" if lab else "")
             for v, lab in marks)
-        return (f"<div class=\"numberline\"><div class=\"nl-bar\">{tick_html}{mark_html}"
-                f"</div></div>")
+        mark_desc = "; ".join(f"{lab or v} at {v}" for v, lab in marks)
+        alt = f"number line from {lo} to {hi}" + (f", marked: {mark_desc}" if marks else "")
+        return (f"<div class=\"numberline\" role=\"img\" aria-label=\"{escape(alt, quote=True)}\">"
+                f"<div class=\"nl-bar\">{tick_html}{mark_html}</div></div>")
     # NEVER dump raw JSON into the page — a printed worksheet with {"type": ...} on it is a
     # blocking print-safety failure (seen in real model output: "list" and "labeled_box").
     if blk.get("text"):
         return f"<p>{md(blk.get('text'))}</p>"
     if blk.get("items"):
-        return "<ul>" + "".join(f"<li>{md(i)}</li>" for i in blk.get("items", [])) + "</ul>"
+        return "<ul>" + "".join(f"<li>{md(item_text(i))}</li>" for i in blk.get("items", [])) + "</ul>"
     # Unknown type with no renderable content: emit nothing. (No debug comment — the type
     # string is model-controlled and could contain "-->" to break out of an HTML comment.)
     return ""
@@ -269,11 +280,17 @@ def render(data: dict) -> str:
     (theme.answer_height, theme.answer_gap,
      theme.answer_row, theme.ruled_default) = answer_profile(data)
     theme.student_doc = data.get("audience") == "student"
+    # Heading-level context for render_block: hbase is the level an "h2"-type block
+    # (or phase_header) renders at in the current scope — 2 in the preamble (parent
+    # is the h1 title), 3 inside a section (parent is the h2 section heading). hsub
+    # flips once such a heading has been emitted, so "h3"-type blocks nest one level
+    # deeper only when they actually have a mid-level parent above them.
+    theme.hbase, theme.hsub = 2, False
     hdr = build_header(data)
     out = ["<div class=\"hdr\">"]
     if hdr["eyebrow"]:
         out.append(f"<div class=\"eyebrow\">{md(hdr['eyebrow'])}</div>")
-    out.append(f"<div class=\"title\">{md(hdr['title'])}</div>")
+    out.append(f"<h1 class=\"title\">{md(hdr['title'])}</h1>")
     if hdr["meta"]:
         out.append(f"<div class=\"meta\">{md(hdr['meta'])}</div>")
     out.append("</div>")
@@ -287,8 +304,9 @@ def render(data: dict) -> str:
                    "instructions"}
     HEAVY_TYPES = {"group", "workspace", "labeled_box"}
     for section in data.get("sections", []):
-        h1 = (f"<div class=\"h1\"><span>{md(str(section.get('heading', '')).rstrip(': '))}"
-              "</span></div>")
+        theme.hbase, theme.hsub = 3, False
+        h1 = (f"<h2 class=\"h1\"><span>{md(str(section.get('heading', '')).rstrip(': '))}"
+              "</span></h2>")
         # The section heading + leading light blocks + the first atomic item
         # (group/workspace) print as one unbreakable unit, so an instructions box never
         # strands above a page break while its first problem starts the next page.
@@ -311,9 +329,9 @@ def render(data: dict) -> str:
         out.append(f"<div class=\"footer\">{md(data['footer_note'])}</div>")
 
     title = escape(str(data.get("title", "Lesson Plan")), quote=True)
-    return ("<!DOCTYPE html><html><head><meta charset=\"utf-8\"><title>" + title
-            + "</title><style>" + css(theme) + "</style></head><body><div class=\"page\">"
-            + "".join(out) + "</div></body></html>")
+    return ("<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>" + title
+            + "</title><style>" + css(theme) + "</style></head><body><main class=\"page\">"
+            + "".join(out) + "</main></body></html>")
 
 
 def main() -> int:

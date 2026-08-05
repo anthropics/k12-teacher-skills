@@ -169,7 +169,7 @@ compose `documents[]` like this:
 - `shared.exit_ticket`: `{student: <exit-ticket prompt>, teacher?: <collection note>}`.
   The three sort entries (standard labels, explicit criteria) are a `cards` block you place
   in the lesson plan after pulling the exit ticket (see `example_lesson.json`).
-- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the SKILL.md schema.
+- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the `references/output.md` schema.
 
 **Documents to emit.** Social-studies inquiry lessons always have written analysis
 questions, so **always include `id: "student_materials"`** alongside `lesson_plan` and

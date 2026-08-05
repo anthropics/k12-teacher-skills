@@ -310,7 +310,7 @@ the "If you finish early" anchor task, and the reflective prompt are pulled from
 they are identical across tiers by construction.
 
 On the printed page, never label anything "CER" or "sensemaking" — those are teacher terms
-(see SKILL.md, Student-facing language). Organizer labels read *Claim / Evidence /
+(see `references/output.md`, Student-facing language). Organizer labels read *Claim / Evidence /
 Reasoning*; the sensemaking frame is introduced as *"Check your thinking"*.
 
 | Level | Worksheet features |
