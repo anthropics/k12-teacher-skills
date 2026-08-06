@@ -24,7 +24,7 @@ sys.path.insert(0, str(Path(__file__).resolve().parent))
 from lesson_common import (  # noqa: E402
     Theme, CALLOUT_KINDS, FILL_IN_CHARS, btype as _btype,
     resolve_callout_kind, answer_profile, build_header, expand_document, coerce_marks,
-    md_tokens, workspace_height, label_text, label_sep, table_row_height, preamble_blocks,
+    md_tokens, workspace_height, label_text, label_sep, table_row_height, preamble_blocks, item_text,
     coerce_headers, coerce_rows,
 )
 
@@ -192,6 +192,18 @@ def _keep_with_next(para):
     para.paragraph_format.keep_together = True
 
 
+def _set_outline_level(para, level: int):
+    """Stamp w:outlineLvl (0 = Heading 1) on the paragraph. The LC heading styles
+    are custom, so without this Word's Navigation pane and screen readers see no
+    document outline at all. Inserted before rPr/sectPr to keep pPr schema order."""
+    pPr = para._p.get_or_add_pPr()
+    el = pPr.find(qn("w:outlineLvl"))
+    if el is None:
+        el = OxmlElement("w:outlineLvl")
+        pPr.insert_element_before(el, "w:rPr", "w:sectPr", "w:pPrChange")
+    el.set(qn("w:val"), str(level))
+
+
 def _box(doc, theme: Theme):
     """A 1x1 bordered table used for callouts."""
     t = doc.add_table(rows=1, cols=1)
@@ -224,9 +236,19 @@ def _emit_labeled(doc, blk, theme):
     add_md(p, blk.get("text", ""))
 
 
-def _emit_heading(style):
+def _emit_heading(style, sub=False):
+    # Outline levels come from document context (theme.hbase/theme.hsub, set in
+    # render()) so the Word outline never skips a level — mirrors the h2/h3
+    # branches of render_lesson_html.render_block; the two must stay in sync.
     def _f(doc, blk, theme):
-        doc.add_paragraph(style=style).add_run(str(blk.get("text", "")))
+        if sub:
+            lvl = getattr(theme, "hbase", 3) + (1 if getattr(theme, "hsub", False) else 0)
+        else:
+            theme.hsub = True
+            lvl = getattr(theme, "hbase", 3)
+        p = doc.add_paragraph(style=style)
+        p.add_run(str(blk.get("text", "")))
+        _set_outline_level(p, lvl - 1)
     return _f
 
 
@@ -252,7 +274,7 @@ def _emit_list(doc, blk, theme, *, checklist=False):
         p = doc.add_paragraph(style=style)
         if checklist:
             p.add_run("☐  ")
-        add_md(p, item)
+        add_md(p, item_text(item))
         paras.append(p)
     if ordered and paras:
         _restart_numbering(doc, paras)
@@ -297,7 +319,9 @@ def _emit_fill_in(doc, blk, theme):
 
 
 def _emit_phase_header(doc, blk, theme):
+    theme.hsub = True
     p = doc.add_paragraph(style="LC H2")
+    _set_outline_level(p, getattr(theme, "hbase", 3) - 1)
     p.paragraph_format.keep_with_next = True
     p.paragraph_format.tab_stops.add_tab_stop(Inches(theme.content_width),
                                               WD_TAB_ALIGNMENT.RIGHT)
@@ -339,7 +363,8 @@ def _emit_workspace(doc, blk, theme, *, labeled=False):
         for row in tbl.rows:
             row.height = Pt(gap)
             row.height_rule = WD_ROW_HEIGHT_RULE.AT_LEAST
-            _cell_borders(row.cells[0], ["bottom"], color="C9CFD4", sz="6")
+            # Twin of html .ansline — same contrast-safe grey (WCAG 1.4.11, 3:1).
+            _cell_borders(row.cells[0], ["bottom"], color="919191", sz="6")
     else:
         tbl = doc.add_table(rows=1, cols=1)
         tbl.rows[0].height = Pt(h)
@@ -368,7 +393,7 @@ def _emit_table(doc, blk, theme):
     large = blk.get("display") == "large"
     for r in rows:
         tr = tbl.add_row()
-        cells = [str(r[i]) if i < len(r) else "" for i in range(ncols)]
+        cells = [item_text(r[i]) if i < len(r) else "" for i in range(ncols)]
         # Underscore runs are write-in blanks, not text.
         cells = ["" if c.strip().strip("_") == "" and "_" in c else c for c in cells]
         full_blank = not any(c.strip() for c in cells)
@@ -545,7 +570,7 @@ _EMITTERS = {
     "paragraph": _emit_paragraph,
     "labeled": _emit_labeled,
     "h2": _emit_heading("LC H2"),
-    "h3": _emit_heading("LC H3"),
+    "h3": _emit_heading("LC H3", sub=True),
     "instructions": _emit_instructions,
     "list": _emit_list,
     "checklist": lambda d, b, t: _emit_list(d, b, t, checklist=True),
@@ -573,7 +598,7 @@ def emit_block(doc, blk: dict, theme: Theme):
         add_md(doc.add_paragraph(), blk["text"])
     elif blk.get("items"):
         for item in blk["items"]:
-            add_md(doc.add_paragraph(style="List Bullet"), item)
+            add_md(doc.add_paragraph(style="List Bullet"), item_text(item))
 
 
 # ---- document assembly -------------------------------------------------------
@@ -584,6 +609,8 @@ def render(data: dict, out_path: str) -> int:
     (theme.answer_height, theme.answer_gap,
      theme.answer_row, theme.ruled_default) = answer_profile(data)
     theme.student_doc = data.get("audience") == "student"
+    # Heading-level context for emit_block — same semantics as render_lesson_html.
+    theme.hbase, theme.hsub = 2, False
 
     doc = Document()
     for s in doc.sections:
@@ -595,7 +622,7 @@ def render(data: dict, out_path: str) -> int:
     hdr = build_header(data)
     if hdr["eyebrow"]:
         doc.add_paragraph(hdr["eyebrow"], style="LC Eyebrow")
-    doc.add_paragraph(hdr["title"], style="LC Title")
+    _set_outline_level(doc.add_paragraph(hdr["title"], style="LC Title"), 0)
     if hdr["meta"]:
         doc.add_paragraph(hdr["meta"], style="LC Meta")
     if hdr["name_line"]:
@@ -607,7 +634,9 @@ def render(data: dict, out_path: str) -> int:
         emit_block(doc, blk, theme)
 
     for section in data.get("sections", []):
+        theme.hbase, theme.hsub = 3, False
         h1 = doc.add_paragraph(style="LC H1")
+        _set_outline_level(h1, 1)
         h1.paragraph_format.keep_with_next = True
         h1.add_run(str(section.get("heading", "")).rstrip(": "))
         for blk in section.get("blocks", []):

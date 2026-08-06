@@ -332,6 +332,10 @@ def expand_from_shared(key: str, shared: dict, audience: str = "teacher",
     if val is None or val == "" or val == []:
         return []
     if key in _IDENTITY_KEYS:
+        # Models sometimes write an identity value as a block dict; render the
+        # block (or its text) — str() would print a repr on the page.
+        if isinstance(val, dict):
+            return [val] if _is_block(val) else [{"type": "paragraph", "text": item_text(val)}]
         return [{"type": "paragraph", "text": str(val)}]
 
     if isinstance(val, dict) and not _is_block(val) and (
@@ -468,7 +472,7 @@ def expand_document(data: dict, audience: str = "teacher") -> dict:
 # ============================================================================
 
 DEFAULT_THEME = {
-    "primary": "#17A267", "title_color": "#14613F",
+    "primary": "#0E7A4D", "title_color": "#14613F",
     "text": "#222222", "muted": "#666666", "rule": "#D0D4D8", "border": "#CBD2D8",
     "title_size": 22, "body_size": 10.5,
 }
@@ -589,6 +593,23 @@ def answer_profile(data: dict) -> tuple:
     if n <= 8:
         return 130.0, 24.0, 108.0, False
     return 116.0, 22.0, 96.0, False
+
+
+def item_text(x):
+    """A list item or table cell the model wrote as a block dict instead of a
+    string renders as its readable text — never as a printed repr (a worksheet
+    with {'type': ...} on it is a print-safety failure)."""
+    if isinstance(x, dict):
+        label = str(x.get("label") or x.get("title") or "").strip()
+        text = str(x.get("text") or "").strip()
+        if label and text:
+            return f"**{label}:** {text}"
+        # A dict with neither label nor text still carries content somewhere —
+        # join its scalar values so nothing vanishes silently (coerce_marks rule).
+        return label or text or " ".join(
+            str(v).strip() for v in x.values()
+            if isinstance(v, (str, int, float)) and str(v).strip() and v != x.get("type"))
+    return "" if x is None else str(x)
 
 
 def coerce_marks(raw):

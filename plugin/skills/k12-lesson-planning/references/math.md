@@ -142,7 +142,7 @@ sections:
                                     ruled: true when the answer is composed sentences) ]
                            on the ONE problem whose hard part is the writing move, its
                              group also carries the sentence support -- plain text before
-                             the answer_box (see Sentence supports in SKILL.md)
+                             the answer_box (see Sentence supports in `references/output.md`)
                            page_break
   "<exit heading, kid-facing>"     group[ from_shared:exit_ticket, answer_box ]
 ```
