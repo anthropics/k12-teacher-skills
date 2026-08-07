@@ -2,7 +2,7 @@
 Source code and evaluation framework for the agent skills that are included with [Claude for Teachers](https://claude.com/solutions/teachers). 
 
 Included are two skills:
-- `k12-lesson-planning`: Builds classroom-ready, standards-aligned lesson plans, optionally aligned to a teacher's curriculum
+- `k12-lesson-planning`: Builds classroom-ready, standards-aligned lesson plans, optionally aligned to a teacher's curriculum. Handles cross-curricular requests — a lesson in one subject that also grounds a supporting subject's standard (e.g. an ELA lesson built on a science unit's content)
 - `k12-lesson-differentiation`: Adapts an existing lesson into tiered versions (below / at / above proficiency-level) and for specific student needs, keeping core content consistent across tiers
 
 Where noted, materials in this repo were co-developed between Anthropic and Learning Commons, who collaborated to help Claude create classroom materials that are grounded in academic standards and follow best practices from learning science research.

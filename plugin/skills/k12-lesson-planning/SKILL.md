@@ -1,7 +1,7 @@
 ---
 name: k12-lesson-planning
 description: >
-  Creates a lesson plan, student-facing materials, and observation template. Load this skill BEFORE asking the teacher any clarifying question about grade, subject, topic, standard, or timing. Use when a K-12 teacher needs a math, ELA, science, or social studies lesson built from scratch — even if grade, subject, or topic isn't yet stated. Do NOT load for grading, a rubric, assessment feedback, a quiz, or a standards lookup — answer those directly. Triggers on explicit requests (lesson plan, mini-lesson, unit plan, daily plan) and implicit teacher intent: "I'm teaching long division to 5th graders," "need to teach photosynthesis tomorrow." Core signal: teacher needs new instructional content created. A new lesson that asks for differentiated, tiered, or leveled materials is still ONE planning request — this skill produces those materials inside the lesson package; do not also invoke k12-lesson-differentiation. Not for differentiating an existing lesson (use k12-lesson-differentiation) or passage rewrites.
+  Creates a lesson plan, student-facing materials, and observation template. Load this skill BEFORE asking the teacher any clarifying question about grade, subject, topic, standard, or timing. Use when a K-12 teacher needs a math, ELA, science, or social studies lesson built from scratch — even if grade, subject, or topic isn't yet stated. A cross-curricular request — one subject's lesson or worksheet that must also pull in a second subject's standards ("an ELA passage tied to our ecosystems science unit") — is still ONE planning request handled here. Do NOT load for grading, a rubric, assessment feedback, a quiz, or a standards lookup — answer those directly. Triggers on explicit requests (lesson plan, mini-lesson, unit plan, daily plan) and implicit teacher intent: "I'm teaching long division to 5th graders," "need to teach photosynthesis tomorrow." Core signal: teacher needs new instructional content created. A new lesson that asks for differentiated, tiered, or leveled materials is still ONE planning request — this skill produces those materials inside the lesson package; do not also invoke k12-lesson-differentiation. Not for differentiating an existing lesson (use k12-lesson-differentiation) or passage rewrites.
 license: Complete terms in LICENSE
 ---
 
@@ -63,8 +63,15 @@ Teacher language only — name what the teacher is getting, never tool names, fi
    complete subject-specific instructions: clarify priorities, curriculum branching,
    grade-band structures, section structure, non-negotiables, and the lesson.json mapping.
    Treat the loaded reference as your full skill instructions for this turn. If the subject
-   is genuinely ambiguous or the prompt spans multiple subjects, ask about it
-   in Step 1.
+   is genuinely ambiguous, ask about it in Step 1.
+
+   **Cross-curricular requests.** When the teacher wants the lesson to integrate a second
+   subject ("tie it to our science unit," a reading passage that must also hit an NGSS
+   code), route by the PRIMARY subject — the subject of the skill students practice — read
+   its reference file as above, and ALSO read `references/cross_curricular.md` NOW. That
+   file defines the primary/supporting distinction, the extra clarify priorities, the
+   supporting-standard grounding, and the build and lesson.json additions. A prompt that
+   spans subjects with no discernible primary is ambiguous — ask in Step 1.
 
 2. **Curriculum.** If the teacher names or implies a curriculum (Illustrative Mathematics,
    OpenSciEd, …), the subject file's curriculum branch covers it — each subject
@@ -103,12 +110,17 @@ not summarize findings in chat.
 general best practice."* Do not invent KG citations or attribute content to curriculum
 materials you have not seen.
 
+**Cross-curricular requests** additionally ground the supporting subject's standard — see
+*Standards grounding — additions to Step 2* in `references/cross_curricular.md` (it covers
+both the connected and fallback paths).
+
 ---
 
 ## Step 3 — Build the lesson
 
 Follow the subject file's build section: curriculum branching, grade-band structure, section
-structure, and non-negotiables. Respect the **Copyright guardrail** below — never reproduce
+structure, and non-negotiables. Cross-curricular requests also follow the build rules and
+lesson.json mapping additions in `references/cross_curricular.md`. Respect the **Copyright guardrail** below — never reproduce
 curriculum student-facing text verbatim.
 
 ---
