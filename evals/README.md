@@ -81,7 +81,7 @@ Pedagogy criteria evaluate whether the output reflects sound instructional desig
 
 Key pedagogical commitments threaded through the P criteria:
 
-* **Curriculum coherence.** Skills should help teachers work within their adopted curriculum. When a  teacher uses a high-quality instructional material (HQIM), outputs should be coherent with that curriculum's design logic.  
+* **Curriculum coherence.** Skills should help teachers work within their adopted curriculum. When a teacher uses a high-quality instructional material (HQIM), outputs should be coherent with that curriculum's design logic.  
 * **Discipline-specific instructional models.** The rubrics branch by subject. Math rubrics measure full standards coverage and student discourse. ELA rubrics are grounded in the science of reading and look for any unsupported practices that should be removed from lessons.  Science rubrics require inquiry, writing, and quantitative reasoning. Social studies rubrics focus on sourcing and argumentation.  
 * **Anticipating struggle.** Rather than only naming "misconceptions" (which implies incorrect beliefs), P criteria require attention to *points of difficulty* more broadly: patterns, why they arise, and teacher moves for each. Generic "some students may struggle" language fails.
 
