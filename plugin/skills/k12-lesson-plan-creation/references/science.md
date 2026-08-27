@@ -1,12 +1,6 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Science — lesson pedagogy
 
-Loaded by `k12-lesson-planning` when the subject is **science**.
+Loaded by `k12-lesson-plan-creation` when the subject is **science**.
 
 ## Clarify
 
@@ -180,3 +174,6 @@ When you reach Step 5 (Output) in SKILL.md, map science content to the material-
 - Student-page section headings in plain inquiry language ("What do you notice?",
   "Investigation") — you compose them directly in the document's sections.
 
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

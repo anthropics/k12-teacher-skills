@@ -1,9 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Learning Commons Knowledge Graph — call sequences (differentiation)
 
 Used by `k12-lesson-differentiation` Step 2 **only when the LC Knowledge Graph connector is
@@ -134,3 +128,4 @@ Note any standard code the source lesson names — the resolution step searches 
 
 ---
 
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

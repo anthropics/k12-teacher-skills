@@ -31,7 +31,7 @@ else
   exit 1
 fi
 # Persist the source JSON alongside the rendered artifacts so later revision
-# turns can re-render from it (same guarantee the lesson-planning renderer
+# turns can re-render from it (same guarantee the lesson-plan-creation renderer
 # makes with lesson.json).
 cp "$json" "$outdir/differentiation.json" 2>/dev/null || true
 

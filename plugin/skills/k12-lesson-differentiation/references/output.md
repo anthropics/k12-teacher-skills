@@ -1,9 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Output contract — k12-lesson-differentiation
 
 Loaded by `k12-lesson-differentiation` at Step 5, before writing `differentiation.json`.
@@ -240,3 +234,6 @@ Only if the user explicitly asks for an artifact or layout the bundled renderer 
 scratch for that artifact. Source its content from the same `differentiation.json` (especially
 `shared`) so it stays consistent with the other artifacts. Tell the user this path is slower.
 
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

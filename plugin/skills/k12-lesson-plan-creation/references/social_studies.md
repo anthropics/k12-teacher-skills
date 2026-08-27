@@ -1,12 +1,6 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Social Studies — lesson pedagogy
 
-Loaded by `k12-lesson-planning` when the subject is **social studies / history**. This subject
+Loaded by `k12-lesson-plan-creation` when the subject is **social studies / history**. This subject
 follows the C3 inquiry arc, generates a **single lesson** positioned within a unit arc, and
 **points to** primary sources rather than reproducing them.
 
@@ -198,3 +192,7 @@ it* live only in the `lesson_plan` document — pull them with their teacher-onl
 
 Alongside the documents, briefly note which source collection(s) likely have the recommended
 sources, and any coherence flag about assumed prior knowledge.
+
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

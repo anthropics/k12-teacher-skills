@@ -1,12 +1,6 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Learning Commons Knowledge Graph — call sequences
 
-Used by `k12-lesson-planning` Step 2 **only when the LC Knowledge Graph tools are available**.
+Used by `k12-lesson-plan-creation` Step 2 **only when the LC Knowledge Graph tools are available**.
 If they are not, skip this file entirely (SKILL.md Step 2 has the fallback).
 Each section below is the call sequence for one subject. Calling the KG when connected is
 mandatory; not calling it is a critical failure.
@@ -106,3 +100,5 @@ Use the KG to find the authoritative standard statement for this topic and grade
 → **KG phase complete. Proceed immediately to Step 3.**
 
 ---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

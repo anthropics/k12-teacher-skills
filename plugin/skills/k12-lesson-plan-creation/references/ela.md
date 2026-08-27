@@ -1,12 +1,6 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # ELA — lesson pedagogy
 
-Loaded by `k12-lesson-planning` when the subject is **ELA**.
+Loaded by `k12-lesson-plan-creation` when the subject is **ELA**.
 
 ## Clarify
 
@@ -225,3 +219,6 @@ sections:
 
 **Observation template layout** matches the math layout in `references/math.md`.
 
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

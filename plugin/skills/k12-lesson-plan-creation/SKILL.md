@@ -1,15 +1,9 @@
 ---
-name: k12-lesson-planning
+name: k12-lesson-plan-creation
 description: >
   Creates a lesson plan, student-facing materials, and observation template. Load this skill BEFORE asking the teacher any clarifying question about grade, subject, topic, standard, or timing. Use when a K-12 teacher needs a math, ELA, science, or social studies lesson built from scratch — even if grade, subject, or topic isn't yet stated. Do NOT load for grading, a rubric, assessment feedback, a quiz, or a standards lookup — answer those directly. Triggers on explicit requests (lesson plan, mini-lesson, unit plan, daily plan) and implicit teacher intent: "I'm teaching long division to 5th graders," "need to teach photosynthesis tomorrow." Core signal: teacher needs new instructional content created. A new lesson that asks for differentiated, tiered, or leveled materials is still ONE planning request — this skill produces those materials inside the lesson package; do not also invoke k12-lesson-differentiation. Not for differentiating an existing lesson (use k12-lesson-differentiation) or passage rewrites.
-license: Complete terms in LICENSE
+license: "Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0. Complete terms in LICENSE and NOTICE."
 ---
-
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
 
 # K-12 Lesson Planning
 

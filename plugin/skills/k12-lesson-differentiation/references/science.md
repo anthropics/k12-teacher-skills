@@ -1,9 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Science — differentiation pedagogy
 
 Loaded by `k12-lesson-differentiation` when the subject is **science**.
@@ -360,3 +354,7 @@ do not add answer boxes for tasks.]
 - `shared.sentence_frames`: CER frames as plain text with blanks sized for handwriting, placed with the task's writing space
 - Teacher document: **integrated differentiated lesson plan** (organized by phase), max 5 pages; worksheets max 2 pages each
 - **Copyright:** do NOT reproduce OpenSciEd (OSE) student-facing text verbatim — this applies to investigation instructions, phenomenon descriptions, and CER prompts drawn from OSE materials.
+
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

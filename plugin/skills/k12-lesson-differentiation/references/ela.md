@@ -1,9 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # ELA — differentiation pedagogy
 
 Loaded by `k12-lesson-differentiation` when the subject is **ela**.
@@ -378,3 +372,7 @@ boxes for tasks.]
 - `shared.t1`..`tN`: the core reading/writing tasks shared by ALL tiers, one task per key — faceted {teacher: "the difficulty and what to watch for, as a plain sentence", student: <the task>}
 - Teacher document: differentiation plan, max 3 pages; student materials max 2 pages each
 - **Copyright:** do NOT reproduce the source lesson's student-facing text verbatim — rewrite as original content.
+
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

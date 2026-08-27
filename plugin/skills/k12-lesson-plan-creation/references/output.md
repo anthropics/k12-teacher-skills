@@ -1,12 +1,6 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
+# Output contract — k12-lesson-plan-creation
 
-# Output contract — k12-lesson-planning
-
-Loaded by `k12-lesson-planning` at Step 5, before writing `lesson.json`. Every rule here
+Loaded by `k12-lesson-plan-creation` at Step 5, before writing `lesson.json`. Every rule here
 is a hard requirement for the documents.
 
 ## Density rules — hard requirements for every document
@@ -226,3 +220,7 @@ dimensions for cutting, poster-scale type — belongs outside it, as its own fil
 whatever format produces the best version (e.g. a print-ready PDF). Your judgment
 picks the format; source any shared content from `shared` so pages can't drift, and name
 the file in Materials like any other page.
+
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

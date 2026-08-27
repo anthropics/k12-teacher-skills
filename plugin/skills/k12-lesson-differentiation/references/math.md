@@ -1,9 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Math — differentiation pedagogy
 
 Loaded by `k12-lesson-differentiation` when the subject is **math**.
@@ -324,3 +318,7 @@ answer boxes for problems.]
 - `shared.t1`..`tN`: the core problem set shared by ALL tiers, one task per key — faceted {teacher: "the difficulty and what to watch for, as a plain sentence", student: <the problem>}
 - Teacher document: differentiation plan, max 3 pages; worksheets max 2 pages each
 - **Copyright:** do NOT reproduce Illustrative Mathematics (IM) student-facing text verbatim — problem contexts, activity narratives, and cool-down prompts from IM materials must be rewritten as original content.
+
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

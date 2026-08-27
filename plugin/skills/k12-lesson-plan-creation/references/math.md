@@ -1,12 +1,6 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Math — lesson pedagogy
 
-Loaded by `k12-lesson-planning` when the subject is **math**.
+Loaded by `k12-lesson-plan-creation` when the subject is **math**.
 
 ## Clarify
 Before asking anything, assess the following from all available conversation signals:
@@ -159,3 +153,7 @@ sections:
 ```
 
 Worked example: `references/example_lesson.json`.
+
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

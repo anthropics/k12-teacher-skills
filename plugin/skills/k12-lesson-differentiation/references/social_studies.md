@@ -1,9 +1,3 @@
-<!--
-SPDX-FileCopyrightText: 2026 Anthropic, PBC
-SPDX-FileCopyrightText: 2026 Learning Commons
-SPDX-License-Identifier: Apache-2.0
--->
-
 # Social Studies — differentiation pedagogy
 
 Loaded by `k12-lesson-differentiation` when the subject is **social studies**.
@@ -329,3 +323,7 @@ do not add answer boxes for tasks.]
 - `shared.t1`..`tN`: the source analysis tasks shared by ALL tiers, one task per key — faceted {teacher: "the difficulty and what to watch for, as a plain sentence", student: <the task>}
 - Teacher document: differentiation plan, max 3 pages; worksheets max 2 pages each
 - **Copyright:** do NOT reproduce primary source text or curriculum source-set descriptions verbatim — provide citations and pointers only; student-facing analysis tasks must be original.
+
+---
+
+Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0

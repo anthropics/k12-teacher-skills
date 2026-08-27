@@ -1,0 +1,19 @@
+{
+  "name": "k12-teacher-skills",
+  "owner": {
+    "name": "Anthropic"
+  },
+  "metadata": {
+    "description": "Plugin marketplace for K-12 Education and Claude for Teachers."
+  },
+  "plugins": [
+    {
+      "name": "k12-education",
+      "displayName": "K-12 Education",
+      "description": "Skills and MCPs for K-12 Education: standards-aligned lesson plan creation, lesson differentiation, lesson prep, and checks for understanding across math, ELA, science, and social studies.",
+      "version": "0.9.0",
+      "category": "education",
+      "source": "./plugin"
+    }
+  ]
+}
