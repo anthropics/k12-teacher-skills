@@ -2,7 +2,7 @@
 Source code and evaluation framework for the agent skills that are included with [Claude for Teachers](https://claude.com/solutions/teachers). 
 
 Included are four skills:
-- `k12-lesson-plan-creation`: Builds classroom-ready, standards-aligned lesson plans, optionally aligned to a teacher's curriculum
+- `k12-lesson-plan-creation`: Builds classroom-ready, standards-aligned lesson plans, optionally aligned to a teacher's curriculum. Handles cross-curricular requests — a lesson in one subject that also grounds a supporting subject's standard (e.g. an ELA lesson built on a science unit's content)
 - `k12-lesson-differentiation`: Adapts an existing lesson into tiered versions (below / at / above proficiency-level) and for specific student needs, keeping core content consistent across tiers
 - `k12-lesson-prep`: A prep partner for a lesson the teacher already has; works through the key student task with them and leaves a short teacher-only prep note
 - `k12-check-for-understanding`: Builds a 1–3 item formative check for a math standard, with distractors drawn from documented misconceptions and a teacher guide routing each response to a next step
