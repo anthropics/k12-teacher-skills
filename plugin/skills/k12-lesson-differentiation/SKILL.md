@@ -1,10 +1,13 @@
 ---
 name: k12-lesson-differentiation
-description: Adapts an existing K-12 lesson (math, ELA, science, or social studies) for students at different proficiency levels (below / at / above grade level). Load this skill BEFORE asking the teacher any clarifying question about the lesson, tiers, or student levels. Triggers on explicit asks to differentiate, tier, or scaffold a lesson, and on implicit signals like "my students are at different levels". Produces 1 teacher-facing differentiation plan + 3 student-ready tier documents as editable Word documents in a single output turn, rendered from one material-source JSON via bundled scripts (shared content is written once so tiers cannot drift). Uses the Learning Commons Knowledge Graph when connected; works without it. This skill adapts a lesson the teacher brings or names. Not for creating a new lesson from scratch — a new-lesson request that asks for differentiated or leveled materials is k12-lesson-plan-creation's job, one package. Not for grading, rubrics, assessment feedback, or quizzes.
+description: Adapts an existing K-12 lesson (math, ELA, science, or social studies) for students at different proficiency levels (below / at / above grade level). Load this skill BEFORE asking the teacher any clarifying question about the lesson, tiers, or student levels. Triggers on explicit asks to differentiate, tier, or scaffold a lesson, and on implicit signals like "my students are at different levels". Produces 1 teacher-facing differentiation plan + 3 student-ready tier documents as editable, printable documents in a single output turn (shared content is written once, so tiers cannot drift). Uses the Learning Commons Knowledge Graph when connected; works without it. This skill adapts a lesson the teacher brings or names. Not for creating a new lesson from scratch — a new-lesson request that asks for differentiated or leveled materials is k12-lesson-plan-creation's job, one package. Not for grading, rubrics, assessment feedback, or quizzes.
 license: "Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SPDX-License-Identifier: Apache-2.0. Complete terms in LICENSE and NOTICE."
 ---
 
 # K-12 Lesson Differentiation
+
+Paths here (`references/…`, `rendering/…`) are relative to this SKILL.md's folder; use absolute
+paths.
 
 Adapts an existing K-12 lesson for below / at / above grade-level proficiency using
 research-based differentiation principles (Tomlinson framework + subject-specific access
@@ -25,6 +28,12 @@ curriculum materials, design the three tiers, and build the worksheets."*).
 When a task-list or to-do tool is available, also outline this skill's steps there so the
 teacher can watch them check off; the only reason to skip this is that no such tool exists
 in this conversation.
+
+The teacher reads every line you write, the ones beside tool calls included. Between tool calls say
+nothing, or speak in teacher language: name what the teacher is getting — the differentiation plan
+and the three tier documents — never tool names, file names, "JSON", "artboards" or "rendering". Say
+"Word document" only on the Word path; otherwise "your documents" or "pages". The same goes for
+errors: say the documents couldn't be made, not that a script or JSON failed.
 
 ---
 
@@ -158,19 +167,18 @@ tool when available, chat otherwise) as its own separate question, and is asked 
 own when nothing else needs asking. Its two sides are always the set and the draft. The
 wording below lives in the question itself:
 
-- Question: *Should I build a full classroom-ready set (teacher plan + three tier
-  documents, as editable Word docs), or do you want to see a quick draft first?*
+- Question: *Should I build a full classroom-ready set (teacher plan + three tier documents, as
+  editable, printable documents), or do you want to see a quick draft first?*
 - Options: **Go ahead and build it** · **Quick draft first** — what changes for each
   tier, right here in chat
 
 **The full set is the default.** A reply that selects the draft option or asks to see
 the draft gets the draft; every other reply runs Steps 2–3 and goes straight to Step 5.
 
-**The draft (on a yes) is built on Steps 2–3, never instead of them.** Run Step 2 in
-full — every KG call, exactly as written — and Step 3 before sketching anything. A draft
-sketched without the Step 2 grounding is a critical failure. Then present the design in
-chat — the draft is chat text only;
-rendering happens at Step 5 once the teacher approves. Show:
+**The draft (on a yes) is built on Steps 2–3, never instead of them.** Run Step 2 in full — every KG
+call, exactly as written — and Step 3 before sketching anything. A draft sketched without the Step 2
+grounding is a critical failure. Then present the design in chat — the draft is chat text only; the
+documents are made at Step 5 once the teacher approves. Show:
 
 - one line reading back the source lesson, standard, and grade;
 - for each tier (below / at / above), 2–3 bullets on what changes and why;
@@ -182,10 +190,10 @@ rendering happens at Step 5 once the teacher approves. Show:
 The draft borrows its names from the documents it previews — phases, tasks, tiers,
 and sections are called what the plan will call them.
 
-Afterwards, ask what's next in plain chat — a typed reply can carry the changes themselves,
-which a picked option cannot: *"Want anything different? Tell me here — or tell me to go
-ahead and I'll create the materials (teacher plan and the three tier documents, as editable
-Word docs)."*
+Afterwards, ask what's next in plain chat — a typed reply can carry the changes themselves, which a
+picked option cannot: *"Want anything different? Tell me here — or tell me to go ahead and I'll
+create the materials (teacher plan and the three tier documents, as editable, printable
+documents)."*
 
 Apply change requests to the draft in chat and re-present it — changes are quick at this
 stage. Step 5 runs in the turn the teacher gives the go-ahead.
@@ -197,46 +205,24 @@ stage. Step 5 runs in the turn the teacher gives the go-ahead.
 Runs immediately when the teacher chose the full set, or in the turn the draft is
 approved.
 
-Four artifacts — **1 teacher-facing plan + 3 student tier documents (below / at / above)** —
-are all rendered by a bundled script from **one `differentiation.json` (the material source)**. Anything that
-appears in more than one artifact (standard, problem/task set, exit ticket, vocabulary,
-sentence supports, misconceptions) lives ONCE in the JSON's `shared` block and is pulled into
-each document with `{"type": "from_shared", "key": …}` blocks, so the teacher plan and the
-tier documents cannot drift apart — and R6 (same context, same core tasks across tiers) is
-enforced structurally.
+### 5a. Read references and make the common JSON
 
-Every change goes into `differentiation.json` and is re-rendered (instant) — never write
-layout code, hand-edit a generated document, or re-type one into another format.
+1. Read `references/output.md` in full first: the hard requirements for every document's content.
+2. Then read `references/differentiation-json.md` and write ONE complete **`differentiation.json`**,
+   the set's common baseline. Every path makes its documents from it; it fixes WHAT each document
+   carries, not how a page looks.
 
-**Plain language with the teacher.** The machinery above is invisible to the teacher: never
-mention JSON, HTML, schemas, scripts, tool names, rendering, file names, or code
-in any teacher-facing message — and never link or name the `.html` files the render command
-also writes. Say *"Here's your differentiation plan — the three tier documents are on their
-way"*, not *"I've rendered differentiation.json"*. The only format word in your prose is
-"Word document". This applies to every
-turn, the keeping-posted announcement included: presenting artifacts, the satisfaction
-ask, revision summaries, and error messages (if
-generation fails, say the documents couldn't be created — not that a script or JSON failed).
+### 5b. Make every document — same turn
 
-Before writing `differentiation.json`, read `references/output.md` in full — it carries
-the hard requirements, cross-checks, schema, revision rules, and student-page language
-rules. Re-read it before any revision turn.
+Check whether your artifact tool can create an artifact from a published type; if it can, look at
+its type list. Take the first row that applies and read its file:
 
-### 5b. Render all four Word documents — one command, same turn
+| What you have | Read |
+|---|---|
+| **Design** is in the type list | `rendering/claude-artifact.md` |
+| Design isn't listed, or there is no such tool | `rendering/docx.md` |
 
-```bash
-bash scripts/render_all.sh differentiation.json "$OUTPUT_DIR"
-```
-
-This writes `$OUTPUT_DIR/teacher_plan.docx`, `$OUTPUT_DIR/worksheet_group_a.docx`,
-`$OUTPUT_DIR/worksheet_group_b.docx`, and `$OUTPUT_DIR/worksheet_group_c.docx` in one invocation,
-plus `.html` working files — no copy step needed; leave everything
-the script writes in place (later revision turns re-render from the working files). Then list
-`$OUTPUT_DIR` and confirm every document has both its `.docx` and `.html`; if either is
-missing or tiny, rerun the script. Present all four Word documents to the teacher together —
-attach the teacher plan last so it lands on top (chat surfaces stack newest-first). If the script errors, fix
-`differentiation.json` (it is almost always malformed JSON) and rerun. If file generation
-fails entirely, say so clearly — do not silently fall back to a chat-only delivery.
+If making the documents fails entirely, say so — don't silently fall back to chat.
 
 ### 5c. The close (every output turn)
 
@@ -261,7 +247,17 @@ message mentions the sheets, use their group names with the association noted on
 3. **The satisfaction ask.** Ask whether the teacher is satisfied with **all four artifacts**
    or wants changes. Do not skip the ask — on every output turn, including revisions.
 
+### 5d. Revisions — one change, every document stays in sync
+
+Re-read `references/output.md` before any revision turn. Make **targeted edits to
+`differentiation.json` first**: shared content is edited in `shared`, once, and every document that
+pulls it follows identically. Then re-read every document and fix every sentence that still mentions
+the old context, names, or numbers — stale prose is the most common consistency failure. A change
+aimed at one tier goes in that tier document's blocks, never by forking shared content, and keeps
+the subject file's R4 rules and R7 fade pattern. Then carry it into the documents the way your
+path's file says (Docs and canvas: only the parts and pages whose content changed; Word: re-render).
+
 ## Step 6 — Complete
 
-The skill is complete when the teacher has confirmed they are satisfied with all four Word
-documents (5c).
+The skill is complete when the teacher has confirmed they are satisfied with all four documents
+(5c).

@@ -313,7 +313,11 @@ answer boxes for problems.]
 
 ## Writing differentiation.json — math mapping
 
+*Every path writes this into `differentiation.json` (5a); otherwise it decides content and which
+page carries it, never layout.*
+
 - `shared.subject`: `"Mathematics"`
+- `shared.standard_code` / `shared.standard_text`: the CCSS-M standard, verbatim
 - `shared.anchor_task`: the shared problem context / hook
 - `shared.t1`..`tN`: the core problem set shared by ALL tiers, one task per key — faceted {teacher: "the difficulty and what to watch for, as a plain sentence", student: <the problem>}
 - Teacher document: differentiation plan, max 3 pages; worksheets max 2 pages each

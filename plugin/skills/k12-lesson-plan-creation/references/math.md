@@ -77,10 +77,11 @@ Coverage rules:
 2. **Learning goal** — Big Idea (enduring understanding, 1 sentence); SWBAT; Prerequisite (prior standard by code + one plain sentence on what students can already do and how today builds on it)
 3. **Vocabulary & anticipated challenges** — 3–5 key terms with brief definitions; 2–3 misconceptions each as: *What students do* / *Why it happens* / *Teacher move*
 4. **Lesson sequence** — phases per curriculum branch above; **Discuss gets at least 10 minutes** (in a short warm-up-style request, shrink the other phases, not Discuss); in Explore: 3+ look-fors each naming the student response, why it matters, and what to do with it — and if the anchor task admits more than one correct response or equation, one look-for must say so explicitly so the teacher accepts all of them; in Discuss: at least one named student-to-student talk move (Think-Pair-Share, Turn-and-Talk, partner compare, agree/disagree) + specific discourse prompts (not generic)
-5. **Design notes** — last section, after the exit ticket: 2–3 elements to keep intact when
-   adapting, with brief reasoning, including the lesson's central representation (the visual
-   or model students work with) and its one-sentence why. Rationale lives here, after the
-   teaching path — a teacher prepping reads the arc first, the reasoning second.
+5. **If you adapt this lesson** — last section, after the exit ticket: the 2–3 parts the lesson
+   depends on, each named as the part itself (a noun phrase) with brief reasoning, including the
+   lesson's central representation (the visual or model students work with) and its one-sentence
+   why. Rationale lives here, after the teaching path — a teacher prepping reads the arc first, the
+   reasoning second.
 
 ## Exit ticket guidance
 
@@ -96,10 +97,14 @@ The exit ticket is the last phase in Lesson Sequence (`from_shared:exit_ticket` 
 
 ## Writing lesson.json — math mapping
 
+*Every path writes this into `lesson.json` (5a); otherwise it decides content and which page carries
+it, never layout.*
+
 When you reach Step 5 (Output) in SKILL.md, register math content in `shared` and compose
 `documents[]` like this:
 
 - `shared.subject`: `"Mathematics"`; `shared.smps`: the 2–3 SMPs, named verbatim.
+- `shared.standard_code` / `shared.standard_text`: the CCSS-M standard, verbatim
 - `shared.anchor_task`: `{teacher: <launch script + facilitation note>, student: <the task as
   the student reads it, second person>}`.
 - Each practice problem as its own key — `shared.p1`..`pN`: `{student: <prompt text>}`,

@@ -111,8 +111,14 @@ student-facing text, contexts, or teacher notes verbatim.
 
 ## Step 5 — Output
 
-In the turn Step 4 completes. Read `references/output.md` in full first, then write both files to
-`$OUTPUT_DIR`.
+In the turn Step 4 completes. Read `references/output.md` in full first. Then check whether your
+artifact tool can create an artifact from a published type; if it can, look at its type list. Take
+the first row that applies:
+
+| What you have | Do |
+|---|---|
+| **Slides** is in the type list | Read `rendering/claude-artifact.md` and make the check that way |
+| Slides isn't listed, or there is no such tool | Write both files to `$OUTPUT_DIR` |
 
 ---
 
@@ -122,7 +128,8 @@ In the turn Step 4 completes. Read `references/output.md` in full first, then wr
 it is a gate on the written artifact, not build guidance, and reading it early turns it back into a
 checklist you tick against what you meant to write.
 
-Now read it in full, read both files back from `$OUTPUT_DIR`, and run its two gates on every item —
+Now read it in full, read both files back from `$OUTPUT_DIR` (or the deck and the guide, on the
+slides path), and run its two gates on every item —
 whether more than one choice can be defended, and whether each distractor is a choice a real
 student's reasoning reaches. Fix what they find and rewrite the files. **Delivering a check that
 hasn't been through both gates is a critical failure.**

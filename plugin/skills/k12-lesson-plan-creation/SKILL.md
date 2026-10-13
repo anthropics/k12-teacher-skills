@@ -7,11 +7,14 @@ license: "Copyright 2026 Anthropic, PBC · Copyright 2026 Learning Commons · SP
 
 # K-12 Lesson Planning
 
+Paths here (`references/…`, `rendering/…`) are relative to this SKILL.md's folder; use absolute
+paths.
+
 Produces a teacher-ready, standards-aligned lesson plan + student-facing materials + teacher
-observation template as editable Word documents in a single output turn, rendered from one material-source JSON via
-bundled scripts. Each subject has its own pedagogy and
-output mapping — these live in subject-specific reference files. This skill routes to the
-right one. Works with or without the Learning Commons Knowledge Graph.
+observation template as editable, printable documents in a single output turn — Claude Docs and
+Design pages when this conversation can make Design pages, Word documents otherwise. Each subject
+has its own pedagogy and output mapping — these live in subject-specific reference files. This skill
+routes to the right one. Works with or without the Learning Commons Knowledge Graph.
 
 "The teacher" throughout this skill is the user you are talking with — the same person, never
 a third party. "Teacher-facing" names a document's audience: that user, as opposed to their
@@ -31,7 +34,7 @@ teacher can watch them check off; the only reason to skip this is that no such t
 in this conversation.
 
 Teacher language only — name what the teacher is getting, never tool names, file names,
-"JSON", or "rendering".
+"JSON", "rendering", or "artboards." Say "Word document" if making Word docs; otherwise, say "your documents" or "pages." The same goes for an error: say the documents couldn't be made, not that a script failed.
 
 ---
 
@@ -52,13 +55,13 @@ Teacher language only — name what the teacher is getting, never tool names, fi
    - science → `references/science.md`
    - social studies → `references/social_studies.md`
 
-   **Loading the matching reference file is mandatory.** Drafting a lesson without first
-   reading the subject reference is a critical failure. The reference file carries the
-   complete subject-specific instructions: clarify priorities, curriculum branching,
-   grade-band structures, section structure, non-negotiables, and the lesson.json mapping.
-   Treat the loaded reference as your full skill instructions for this turn. If the subject
-   is genuinely ambiguous or the prompt spans multiple subjects, ask about it
-   in Step 1.
+   **Loading the matching reference file is mandatory.** Drafting a lesson without first reading the
+   subject reference is a critical failure. The reference file carries the complete subject-specific
+   instructions: clarify priorities, curriculum branching, grade-band structures, section structure,
+   non-negotiables, and what goes on each page (its "Writing lesson.json" section — the mapping into
+   the baseline file of Step 5a). Treat the loaded reference as your full skill instructions for
+   this turn. If the subject is genuinely ambiguous or the prompt spans multiple subjects, ask about
+   it in Step 1.
 
 2. **Curriculum.** If the teacher names or implies a curriculum (Illustrative Mathematics,
    OpenSciEd, …), the subject file's curriculum branch covers it — each subject
@@ -129,19 +132,19 @@ round (structured question tool when available, chat otherwise), and its two sid
 always the packet and the draft. The wording below lives in the question itself — the
 teacher may act on it without reading the chat text around it:
 
-- Question: *Should I build a full classroom-ready packet (lesson plan + student
-  materials, as editable Word docs), or do you want to see a quick draft first?*
+- Question: *Should I build a full classroom-ready packet (lesson plan + student materials, as
+  editable, printable documents), or do you want to see a quick draft first?*
 - Options: **Go ahead and build it** · **Quick draft first** — the lesson at a glance,
   right here in chat
 
 **The full packet is the default.** A reply that selects the draft option or asks to see
 the draft gets the draft; every other reply runs Steps 2–3 and goes straight to Step 5.
 
-**The draft (on a yes) is built on Steps 2–3, never instead of them.** Run Step 2 in
-full — every KG call, exactly as written — and Step 3 before sketching anything. A draft
-sketched without the Step 2 grounding is a critical failure, the same failure as skipping
-the KG on the full build. Then present the lesson in chat — the draft is chat text only;
-rendering happens at Step 5 once the teacher approves. Show:
+**The draft (on a yes) is built on Steps 2–3, never instead of them.** Run Step 2 in full — every KG
+call, exactly as written — and Step 3 before sketching anything. A draft sketched without the Step 2
+grounding is a critical failure, the same failure as skipping the KG on the full build. Then present
+the lesson in chat — the draft is chat text only; the documents are made at Step 5 once the teacher
+approves. Show:
 
 - one line naming the grade, topic, and the standard the lesson is anchored to (code plus
   a gist of ten words or fewer);
@@ -156,10 +159,10 @@ rendering happens at Step 5 once the teacher approves. Show:
 The draft borrows its names from the documents it previews — phases, tasks, tiers,
 and sections are called what the plan will call them.
 
-Afterwards, ask what's next in plain chat — a typed reply can carry the changes themselves,
-which a picked option cannot: *"Want anything different? Tell me here — or tell me to go
-ahead and I'll create the materials (lesson plan, student materials, and observation
-template, as editable Word docs)."*
+Afterwards, ask what's next in plain chat — a typed reply can carry the changes themselves, which a
+picked option cannot: *"Want anything different? Tell me here — or tell me to go ahead and I'll
+create the materials (lesson plan, student materials, and observation template, as editable,
+printable documents)."*
 
 Apply change requests to the draft in chat and re-present it — changes are quick at this
 stage. Step 5 runs in the turn the teacher gives the go-ahead.
@@ -171,57 +174,27 @@ stage. Step 5 runs in the turn the teacher gives the go-ahead.
 Runs immediately when the teacher chose the full packet, or in the turn the draft is
 approved.
 
-The artifacts are rendered by bundled scripts from **one material-source `lesson.json`**. The JSON
-holds a `shared` block (content registered once) and a `documents[]` array (each document
-authored as free-form `sections`). A section's `heading` renders as a large title directly
-above its blocks; a block's `label` renders as a bold lead-in on the block itself. A label
-that repeats its section's heading prints the same words twice in a row — labels carry what
-the heading doesn't (the task's name belongs in one of them, not both). You
-compose every page — the lesson plan, the student
-materials, the observation template, and any others the lesson needs (e.g. a source packet)
-— directly in `documents[]`. Anything that appears on more than one page is registered once
-in `shared` under a key you choose and pulled into each document with
-`{"type": "from_shared", "key": …}`, so the pages cannot drift apart.
+### 5a. Read references and make the common JSON
 
-Never write layout code, never re-type lesson content into another format, and never edit a
-generated document directly — every change goes into `lesson.json` and is re-rendered
-(re-rendering is instant). **Do not open, cat, head, or grep the renderer scripts** — their
-behavior is fully specified by the commands and output paths in §5a–5e, and
-`references/example_lesson.json` is a filled-in worked example. Reading script source tells
-you nothing these instructions don't already state.
+1. Read `references/output.md` in full first and the hard requirements for every document's content:
+   brevity, everything matches, reading level and workload, sentence supports, integrity.
+2. Then read `references/lesson-json.md` and write ONE complete **`lesson.json`**, which is the
+   lesson's common baseline. Every path makes its documents from it; it fixes WHAT each document
+   carries, not how a page looks.
 
-**Plain language with the teacher.** The machinery above is invisible to the teacher: never
-mention JSON, HTML, schemas, scripts, rendering, file names (`lesson.json`), or code in any
-teacher-facing message — and never link or name the `.html` files the render command also
-writes. Say *"Here's your lesson plan — the student materials and observation template are on
-their way"*, not *"I've rendered lesson.json"*. The only format word in your prose is
-"Word document". This
-applies to every turn: presenting artifacts, the satisfaction ask, revision summaries, and
-error messages (if generation fails, say the documents couldn't be created — not that a
-script or JSON failed).
+### 5b. Make every document — same turn
 
-Before writing `lesson.json`, read `references/output.md` in full — it carries the hard
-requirements for every document (density, consistency, reading level, integrity) and the
-complete `lesson.json` schema and block guide (§5a and §5e live there).
+Check whether your artifact tool can create an artifact from a published type; if it can, look at
+its type list. Take the first row that applies and read its file:
 
-### 5b. Render every Word document — one command, same turn
+| What you have | Read |
+|---|---|
+| **Design** is in the type list | `rendering/claude-artifact.md` |
+| Design isn't listed, or there is no such tool | `rendering/docx.md` |
 
-```bash
-bash scripts/render_all.sh lesson.json "$OUTPUT_DIR"
-```
-
-This writes one editable `.docx` per `documents[]` entry, named by `id` (e.g.
-`$OUTPUT_DIR/lesson_plan.docx`, `student_materials.docx`, `observation_template.docx`,
-`source_packet.docx`), plus `.html` and `lesson.json` working files. Render straight into
-`$OUTPUT_DIR` and leave everything the script writes in place — later revision turns
-re-render from the working files even though the teacher only sees the Word documents. Then list `$OUTPUT_DIR`
-and confirm every document has both its `.docx` and `.html`; if either is missing or tiny,
-rerun the script. Present the Word documents to the teacher together — attach the lesson plan
-last so it lands on top (chat surfaces stack newest-first). If there is no `student_materials`
-document, say so plainly ("This lesson is oral, so there's no student handout — students will
-work with …"). If the script errors, fix `lesson.json` (it is almost always malformed JSON)
-and rerun. If file generation fails entirely, say so clearly — do not silently fall back to a
-chat-only delivery.
+After creation, if there is no student page, say so plainly ("This lesson is
+oral, so there's no student handout — students will work with …"). If making the documents fails
+entirely, say so; don't silently fall back to chat.
 
 ### 5c. The satisfaction ask + iteration options (every output turn)
 
@@ -242,22 +215,16 @@ End the turn with EXACTLY ONE closing message that does three things, in this or
    English learners, (2) differentiate by proficiency level, or (3) adapt to be specific to
    your state standards?"*
 
-### 5d. Revisions — one edit, every artifact stays in sync
+### 5d. Revisions — one change, every document stays in sync
 
-Make **targeted edits to `lesson.json`**, then re-render every document (instant). Rules that
-keep the artifacts consistent:
-
-- If the change touches content registered in `shared` (a problem, a source, the exit ticket,
-  vocabulary, look-fors, the phenomenon/context/numbers), edit it **in `shared`** — every
-  document that pulls that key updates automatically.
-- **Consistency sweep after any context/number/task change:** after editing `shared`, re-read
-  every prose block in every `documents[]` entry and update every sentence that still mentions
-  the old context, names, or numbers. When you are done, no document may reference the
-  replaced content anywhere — stale prose is the most common consistency failure.
+- Make **targeted edits to `lesson.json` first**: content registered in `shared` (a problem, a
+  source, the exit ticket, vocabulary, look-fors, the context's numbers) is edited there, once, and
+  every document that pulls it follows identically.
+- **Consistency sweep after any context/number/task change:** re-read every document and update
+  every sentence that still mentions the old context, names, or numbers. When you are done, no
+  document may reference the replaced content anywhere — stale prose is the most common consistency
+  failure.
 - A change aimed at one document (e.g. "more workspace on the worksheet", "add a column to the
-  observation grid") goes in that document's `sections` — never by forking a `shared` key into
-  two variants.
-- Styling: `theme` fields (`primary`, `title_size`, `body_size`) apply to every artifact.
-  Artifacts use minimal color so they print cleanly in black-and-white; do not set
-  per-section or per-phase colors.
-
+  observation grid") stays in that document.
+- Then carry it into the documents the way your path's file says (Docs and canvas: only the parts
+  and pages whose content changed; Word: re-render).

@@ -367,7 +367,11 @@ boxes for tasks.]
 
 ## Writing differentiation.json — ELA mapping
 
+*Every path writes this into `differentiation.json` (5a); otherwise it decides content and which
+page carries it, never layout.*
+
 - `shared.subject`: `"ELA"`
+- `shared.standard_code` / `shared.standard_text`: the CCSS-ELA standard, verbatim
 - `shared.anchor_task`: the shared text + essential question
 - `shared.t1`..`tN`: the core reading/writing tasks shared by ALL tiers, one task per key — faceted {teacher: "the difficulty and what to watch for, as a plain sentence", student: <the task>}
 - Teacher document: differentiation plan, max 3 pages; student materials max 2 pages each

@@ -102,9 +102,9 @@ Be sure that overall timing and timing for each section is realistic - do not ov
 6. **Exit ticket** — students answer the supporting question with evidence from the sources.
    Sized to the minutes remaining in the period: a claim plus one or two pieces of cited
    evidence, per the grade band below — never a take-home essay. 2–3 success-criteria bullets.
-7. **Design notes** — 2–3 elements to keep intact when adapting, each with a one-sentence
-   reason grounded in the standard, including the lesson's central organizer or source-work
-   structure and its one-sentence why.
+7. **If you adapt this lesson** — the 2–3 parts the lesson depends on, each named as the part itself
+   (a noun phrase) with a one-sentence reason grounded in the standard, including the lesson's
+   central organizer or source-work structure and its one-sentence why.
 
 ## Grade-Band Guidance
 
@@ -140,10 +140,14 @@ Apply these adjustments throughout the lesson:
 
 ## Writing lesson.json — social studies mapping
 
+*Every path writes this into `lesson.json` (5a); otherwise it decides content and which page carries
+it, never layout.*
+
 When you reach Step 5 (Output) in SKILL.md, register social-studies content in `shared` and
 compose `documents[]` like this:
 
 - `shared.subject`: `"Social Studies"`.
+- `shared.standard_code` / `shared.standard_text`: the C3 or state standard, verbatim
 - `shared.supporting_question`: the supporting question (one sentence, student-facing).
 - Each source as its own key — `shared.source_a`, `shared.source_b`: a `source_card` block
   (title, author, date, origin, **excerpt** — reproduce a public-domain excerpt sized to the analysis when
@@ -163,7 +167,8 @@ compose `documents[]` like this:
 - `shared.exit_ticket`: `{student: <exit-ticket prompt>, teacher?: <collection note>}`.
   The three sort entries (standard labels, explicit criteria) are a `cards` block you place
   in the lesson plan after pulling the exit ticket (see `example_lesson.json`).
-- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the `references/output.md` schema.
+- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the
+  `references/lesson-json.md` schema.
 
 **Documents to emit.** Social-studies inquiry lessons always have written analysis
 questions, so **always include `id: "student_materials"`** alongside `lesson_plan` and
