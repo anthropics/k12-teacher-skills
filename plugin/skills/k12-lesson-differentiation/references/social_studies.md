@@ -318,7 +318,11 @@ do not add answer boxes for tasks.]
 
 ## Writing differentiation.json — social studies mapping
 
+*Every path writes this into `differentiation.json` (5a); otherwise it decides content and which
+page carries it, never layout.*
+
 - `shared.subject`: `"Social Studies"`
+- `shared.standard_code` / `shared.standard_text`: the C3 or state standard, verbatim
 - `shared.anchor_task`: the essential/compelling question
 - `shared.t1`..`tN`: the source analysis tasks shared by ALL tiers, one task per key — faceted {teacher: "the difficulty and what to watch for, as a plain sentence", student: <the task>}
 - Teacher document: differentiation plan, max 3 pages; worksheets max 2 pages each

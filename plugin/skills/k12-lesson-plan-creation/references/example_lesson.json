@@ -432,21 +432,21 @@
           ]
         },
         {
-          "heading": "Design notes",
+          "heading": "If you adapt this lesson",
           "blocks": [
             {
               "type": "labeled",
-              "label": "Cap the mini-lesson at 7 minutes",
+              "label": "The 7-minute mini-lesson",
               "text": "If direct instruction grows, Explore and Discuss shrink, and the thinking transfers back to you."
             },
             {
               "type": "labeled",
-              "label": "Keep the traps",
+              "label": "The trap items",
               "text": "Item 3 and the exit ticket are the only items that catch 'cheapest sticker = best deal'. Without them every student looks proficient."
             },
             {
               "type": "labeled",
-              "label": "Protect the 10-minute Discuss",
+              "label": "The 10-minute Discuss",
               "text": "Connecting the ratio table to the division shortcut is where 'per 1' consolidates."
             }
           ]
@@ -635,8 +635,8 @@
                 "Strategy seen",
                 "Next step"
               ],
-              "blank_rows": 8,
-              "row_height_pt": 26
+              "blank_rows": 5,
+              "row_height_pt": 96
             }
           ]
         },

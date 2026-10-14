@@ -140,7 +140,10 @@ Phases: Launch Phenomenon → Investigation → Scientific Argumentation → Exp
    student page that no phase teaches is a gap in the lesson, not in this list.
 5. **Anticipated student ideas & misconceptions** — up to 3 entries from the KG OSE-materials call or training knowledge, each formatted: *What students think* / *Why it persists* / *Teacher move*
 6. **Lesson sequence** — phases per grade band above; in every investigation phase: 3+ look-fors each naming the specific student behavior, why it matters for the 3D standard, and what to do; in every discussion phase: specific science-based prompts (not generic)
-7. **Design notes** — last section, after the exit ticket: 2–3 elements to keep intact when adapting, each with a brief reason grounded in three-dimensional learning, including the lesson's central representation (model, diagram, or data display) and its one-sentence why.
+7. **If you adapt this lesson** — last section, after the exit ticket: the 2–3 parts the lesson
+   depends on, each named as the part itself (a noun phrase) with a brief reason grounded in
+   three-dimensional learning, including the lesson's central representation (model, diagram, or
+   data display) and its one-sentence why.
 
 → **Section structure complete. Proceed to the draft (when the teacher chose one) or Step 5.**
 
@@ -152,6 +155,9 @@ The exit ticket is the last phase in Lesson Sequence (`from_shared:exit_ticket` 
 
 
 ## Writing lesson.json — science mapping
+
+*Every path writes this into `lesson.json` (5a); otherwise it decides content and which page carries
+it, never layout.*
 
 When you reach Step 5 (Output) in SKILL.md, map science content to the material-source JSON like this:
 
@@ -170,7 +176,8 @@ When you reach Step 5 (Output) in SKILL.md, map science content to the material-
   Idea / Crosscutting Concept).
 - In the observation template, prefix each look-for with its dimension so the teacher sees
   which one they're watching for.
-- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the `references/output.md` schema.
+- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the
+  `references/lesson-json.md` schema.
 - Student-page section headings in plain inquiry language ("What do you notice?",
   "Investigation") — you compose them directly in the document's sections.
 

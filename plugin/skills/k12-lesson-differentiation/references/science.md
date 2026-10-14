@@ -347,6 +347,9 @@ do not add answer boxes for tasks.]
 
 ## Writing differentiation.json — science mapping
 
+*Every path writes this into `differentiation.json` (5a); otherwise it decides content and which
+page carries it, never layout.*
+
 - `shared.subject`: `"Science"`
 - `shared.standard_code` / `shared.standard_text`: the Performance Expectation, verbatim
 - `shared.anchor_task`: the anchoring phenomenon

@@ -62,12 +62,12 @@ Both types share a brief phonics review warm-up; they differ in primary focus.
 
 **Lesson Type A — Phonics/Decoding (RF standards)**
 
-Student-page word work renders as `display: "large"` table grids — big type a child points to
-and reads — never as paragraph runs of words. Word lists for a pattern contain only that
-pattern plus graphemes already taught; read each word aloud to confirm every letter behaves
-as taught. The exit ticket has the child read 3–4 target-pattern words aloud to the teacher
-(include one contrast word, e.g. short-a among a_e); dictation words are spoken by the
-teacher and never printed on the child's ticket.
+Student-page word work is set in big type a child points to and reads — never as paragraph runs of
+words (Word path: a `display: "large"` table). Word lists for a pattern contain only that pattern
+plus graphemes already taught; read each word aloud to confirm every letter behaves as taught. The
+exit ticket has the child read 3–4 target-pattern words aloud to the teacher (include one contrast
+word, e.g. short-a among a_e); dictation words are spoken by the teacher and never printed on the
+child's ticket.
 
 Match the lesson's scope to the request: a single-pattern introduction ("a lesson on
 magic-e") is a focused 30–40 minute lesson — warm-up on the prerequisite sound, teach the
@@ -167,7 +167,10 @@ counterclaim by grade 11, and rhetorical analysis attends to audience, purpose, 
 2. **Learning goal** — Big Idea (enduring understanding, 1 sentence tied to the text and unit); SWBAT bullets drawn from KG learning components (learning-commons-kg.md, ELA call 2), naming specific sub-skills; Prerequisite (prior standard by code + gist + 1 sentence on prior knowledge assumed)
 3. **Vocabulary & anticipated challenges** — 2–3 Tier 2 target words with definitions and text context; 3 misconceptions specific to this text and task, drawn from the KG or training knowledge, each formatted: *What students do* / *Why it happens* / *Teacher move*
 4. **Lesson sequence** — phases per grade band above; in every phase where students work (reading, word work, writing, sorting): 3+ look-fors each naming the specific student behavior, why it matters for the standard, and what to do; in every discussion phase: specific text-dependent prompts (not generic)
-5. **Design notes** — last section, after the exit ticket: 2–3 elements to keep intact when adapting, each with a brief reason grounded in the research (Science of Reading for K–2 phonics; text complexity for 3–12), including the lesson's central representation or routine and its one-sentence why.
+5. **If you adapt this lesson** — last section, after the exit ticket: the 2–3 parts the lesson
+   depends on, each named as the part itself (a noun phrase) with a brief reason grounded in the
+   research (Science of Reading for K–2 phonics; text complexity for 3–12), including the lesson's
+   central representation or routine and its one-sentence why.
 
 → **Section structure complete. Proceed to the draft (when the teacher chose one) or Step 5.**
 
@@ -179,10 +182,14 @@ The exit ticket is the last phase in Lesson Sequence (`from_shared:exit_ticket` 
 
 ## Writing lesson.json — ELA mapping
 
+*Every path writes this into `lesson.json` (5a); otherwise it decides content and which page carries
+it, never layout.*
+
 When you reach Step 5 (Output) in SKILL.md, register ELA content in `shared` and compose
 `documents[]` like this:
 
 - `shared.subject`: `"ELA"`.
+- `shared.standard_code` / `shared.standard_text`: the CCSS-ELA standard, verbatim
 - The anchor text or shared writing prompt as `shared.anchor_task`:
   `{teacher: <how to introduce/read it aloud>, student: <the task as the student reads it,
   or null when the launch is purely oral>}`.
@@ -195,7 +202,8 @@ When you reach Step 5 (Output) in SKILL.md, register ELA content in `shared` and
 - `shared.exit_ticket`: `{student: <prompt>, teacher?: <collection note>}`. The sort
   criteria are a `cards` block you place in the lesson plan after pulling the exit
   ticket (see `example_lesson.json`).
-- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the `references/output.md` schema.
+- `shared.vocabulary`, `shared.misconceptions`, `shared.look_fors` as in the
+  `references/lesson-json.md` schema.
 
 **Which documents to emit.** A K-2 phonemic-awareness or oral-language lesson (RF.*.2,
 RF.*.3 phonics warm-ups, listening-comprehension) often has **no `student_materials`
